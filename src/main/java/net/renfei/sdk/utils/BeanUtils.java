@@ -2,6 +2,7 @@ package net.renfei.sdk.utils;
 
 import java.util.Collection;
 import java.util.Map;
+import java.util.Optional;
 
 /**
  * JavaBean工具
@@ -28,6 +29,8 @@ public class BeanUtils {
             return ((Object[]) o).length == 0;
         } else if (o instanceof Map) {
             return ((Map) o).isEmpty();
+        } else if (o instanceof Optional) {
+            return !((Optional) o).isPresent();
         }
         return false;
     }
