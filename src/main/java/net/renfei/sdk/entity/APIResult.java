@@ -2,10 +2,27 @@ package net.renfei.sdk.entity;
 
 import net.renfei.sdk.comm.StateCode;
 
+/**
+ * API统一响应返回对象
+ *
+ * @author RenFei
+ */
 public final class APIResult {
+    /**
+     * 状态码
+     */
     private Integer code;
+    /**
+     * 消息
+     */
     private String message;
+    /**
+     * 时间戳
+     */
     private Long timestamp;
+    /**
+     * 数据负载对象
+     */
     private Object data;
 
     private APIResult() {

@@ -1,5 +1,10 @@
 package net.renfei.sdk.comm;
 
+/**
+ * 响应状态码
+ *
+ * @author RenFei
+ */
 public enum StateCode {
     /**
      * 完成请求

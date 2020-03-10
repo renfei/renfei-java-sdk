@@ -5,6 +5,12 @@ import java.util.List;
 import java.util.function.Consumer;
 import java.util.function.Supplier;
 
+/**
+ * Builder构建工具类
+ *
+ * @param <T> 构建对象类型
+ * @author RenFei
+ */
 public class Builder<T> {
     private final Supplier<T> instantiator;
     private List<Consumer<T>> modifiers = new ArrayList<>();
