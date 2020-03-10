@@ -24,3 +24,7 @@ matrix:
   allow_failures:
     - jdk: openjdk10
     - jdk: openjdk11
+
+env:
+  global:
+    - secure: $coveralls_token
