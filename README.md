@@ -12,7 +12,7 @@
 <a href="https://ci.appveyor.com/project/NeilRen/renfei-java-sdk"><img src="https://ci.appveyor.com/api/projects/status/ym3ev2dx20715too?svg=true"/></a>
 </p>
 
-<p>收集开发中常用的代码工具。虽然程序员们都热衷于重复的"造轮子"，但这样是不对的，如果代码有问题你应该尝试去修复，而不是重新再造一个轮子出来。所以我收集开发中常用的工具代码，以方便在各个项目中重新利用它们。如果您在使用 RenFei SDK for Java 的过程中遇到任何问题，欢迎在当前 GitHub [提交 Issues](https://github.com/NeilRen/renfei-java-sdk/issues/new)。</p>
+收集开发中常用的代码工具。虽然程序员们都热衷于重复的"造轮子"，但这样是不对的，如果代码有问题你应该尝试去修复，而不是重新再造一个轮子出来。所以我收集开发中常用的工具代码，以方便在各个项目中重新利用它们。如果您在使用 RenFei SDK for Java 的过程中遇到任何问题，欢迎在当前 GitHub [提交 Issues](https://github.com/NeilRen/renfei-java-sdk/issues/new)。
 
 ## 环境要求
 1.RenFei SDK for Java 需要1.8以上的JDK。
@@ -26,6 +26,6 @@
 <dependency>
     <groupId>net.renfei</groupId>
     <artifactId>renfei-java-sdk</artifactId>
-    <version>0.0.1</version>
+    <version>0.0.2</version>
 </dependency>
 ```
