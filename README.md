@@ -8,7 +8,7 @@
 <a href="https://search.maven.org/search?q=g:%22net.renfei%22%20AND%20a:%22sdk%22"><img src="https://img.shields.io/maven-central/v/net.renfei/sdk.svg?label=Maven%20Central" alt="Latest Stable Version"/></a>
 <a href="https://travis-ci.org/NeilRen/renfei-java-sdk"><img src="https://travis-ci.org/NeilRen/renfei-java-sdk.svg?branch=master"/></a>
 <a href='https://coveralls.io/github/NeilRen/renfei-java-sdk?branch=master'><img src='https://coveralls.io/repos/github/NeilRen/renfei-java-sdk/badge.svg?branch=master' alt='Coverage Status' /></a>
-<a href="https://codebeat.co/badges/8fc75bd7-f1c3-4383-bbec-e752d71138d2"><img src="https://codebeat.co/badges/8fc75bd7-f1c3-4383-bbec-e752d71138d2"/></a>
+<a href="https://codebeat.co/projects/github-com-neilren-renfei-java-sdk-master"><img src="https://codebeat.co/badges/8fc75bd7-f1c3-4383-bbec-e752d71138d2" /></a>
 <a href="https://ci.appveyor.com/project/NeilRen/renfei-java-sdk"><img src="https://ci.appveyor.com/api/projects/status/ym3ev2dx20715too?svg=true"/></a>
 </p>
 
