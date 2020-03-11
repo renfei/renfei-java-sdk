@@ -6,18 +6,10 @@
     <groupId>net.renfei</groupId>
     <artifactId>sdk</artifactId>
     <packaging>jar</packaging>
-    <version>0.0.2-SNAPSHOT</version>
+    <version>0.0.2</version>
     <name>renfei-java-sdk</name>
     <url>http://www.renfei.net</url>
-    <description>RenFei Software Development Kit for Java
-
-        Copyright (C) RenFei.Net
-        All rights reserved.
-
-        版权所有 （C）任霏
-
-        http://www.renfei.net
-    </description>
+    <description>RenFei Software Development Kit for Java</description>
 
     <distributionManagement>
         <snapshotRepository>
@@ -46,17 +38,54 @@
     <developers>
         <developer>
             <id>renfei</id>
-            <name>RenFei SDK</name>
+            <name>RenFei</name>
             <email>i@renfei.net</email>
             <organization>RENFEI.NET</organization>
             <organizationUrl>https://www.renfei.net</organizationUrl>
         </developer>
     </developers>
+
+    <properties>
+        <java.version>1.8</java.version>
+        <httpclient.version>4.5.12</httpclient.version>
+        <fastjson.version>1.2.66</fastjson.version>
+        <slf4j.version>1.7.30</slf4j.version>
+    </properties>
     <dependencies>
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
             <version>4.12</version>
+        </dependency>
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-api</artifactId>
+            <version>${slf4j.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-log4j12</artifactId>
+            <version>${slf4j.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>jcl-over-slf4j</artifactId>
+            <version>${slf4j.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>jul-to-slf4j</artifactId>
+            <version>${slf4j.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.httpcomponents</groupId>
+            <artifactId>httpclient</artifactId>
+            <version>${httpclient.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>fastjson</artifactId>
+            <version>${fastjson.version}</version>
         </dependency>
     </dependencies>
 
