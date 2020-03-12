@@ -25,7 +25,7 @@
 ```xml
 <dependency>
     <groupId>net.renfei</groupId>
-    <artifactId>renfei-java-sdk</artifactId>
+    <artifactId>sdk</artifactId>
     <version>0.0.2</version>
 </dependency>
 ```
