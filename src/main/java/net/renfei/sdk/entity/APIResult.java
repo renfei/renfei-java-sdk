@@ -186,6 +186,6 @@ public final class APIResult<T> {
         for (String param : str) {
             sb.append(param);
         }
-        String encryptStr = EncryptionUtils.encrypt("SHA1", sb.toString());
+        this.signature = EncryptionUtils.encrypt("SHA1", sb.toString());
     }
 }
