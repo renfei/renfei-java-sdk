@@ -2,6 +2,10 @@ package net.renfei.sdk.entity;
 
 import net.renfei.sdk.comm.StateCode;
 import net.renfei.sdk.utils.BeanUtils;
+import net.renfei.sdk.utils.EncryptionUtils;
+import net.renfei.sdk.utils.RandomStringUtils;
+
+import java.util.Arrays;
 
 /**
  * API统一响应返回对象
@@ -26,6 +30,14 @@ public final class APIResult<T> {
      */
     private Long timestamp;
     /**
+     * 签名，将时间戳+随机字符串字典排序后SHA1
+     */
+    private String signature;
+    /**
+     * 随机数
+     */
+    private String nonce;
+    /**
      * 数据负载对象
      */
     private T data;
@@ -34,7 +46,7 @@ public final class APIResult<T> {
      * 私有构造防止直接实例化
      */
     private APIResult() {
-        this.timestamp = System.currentTimeMillis();
+        signature();
     }
 
     /**
@@ -47,7 +59,7 @@ public final class APIResult<T> {
         this.message = builder.message;
         this.data = builder.data;
         this.stateCode = builder.stateCode;
-        this.timestamp = System.currentTimeMillis();
+        signature();
     }
 
     /**
@@ -107,6 +119,22 @@ public final class APIResult<T> {
         this.data = data;
     }
 
+    public String getSignature() {
+        return signature;
+    }
+
+    public void setSignature(String signature) {
+        this.signature = signature;
+    }
+
+    public String getNonce() {
+        return nonce;
+    }
+
+    public void setNonce(String nonce) {
+        this.nonce = nonce;
+    }
+
     /**
      * APIResult的构造器
      *
@@ -142,5 +170,22 @@ public final class APIResult<T> {
         public APIResult<T> build() {
             return new APIResult<>(this);
         }
+    }
+
+    /**
+     * 对消息进行签名
+     */
+    private void signature() {
+        this.timestamp = System.currentTimeMillis();
+        this.nonce = RandomStringUtils.getRandomString(16);
+        //字典排序
+        String[] str = {this.timestamp.toString(), this.nonce};
+        Arrays.sort(str);
+        StringBuilder sb = new StringBuilder();
+        //将参数拼接成一个字符串进行sha1加密
+        for (String param : str) {
+            sb.append(param);
+        }
+        String encryptStr = EncryptionUtils.encrypt("SHA1", sb.toString());
     }
 }
