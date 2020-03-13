@@ -28,7 +28,7 @@ public final class APIResult<T> {
     /**
      * 时间戳
      */
-    private Long timestamp;
+    private Integer timestamp;
     /**
      * 签名，将时间戳+随机字符串字典排序后SHA1
      */
@@ -103,11 +103,11 @@ public final class APIResult<T> {
         this.message = message;
     }
 
-    public Long getTimestamp() {
+    public Integer getTimestamp() {
         return timestamp;
     }
 
-    public void setTimestamp(Long timestamp) {
+    public void setTimestamp(Integer timestamp) {
         this.timestamp = timestamp;
     }
 
@@ -176,7 +176,7 @@ public final class APIResult<T> {
      * 对消息进行签名
      */
     private void signature() {
-        this.timestamp = System.currentTimeMillis();
+        this.timestamp = (int) (System.currentTimeMillis() / 1000);
         this.nonce = RandomStringUtils.getRandomString(16);
         //字典排序
         String[] str = {this.timestamp.toString(), this.nonce};
