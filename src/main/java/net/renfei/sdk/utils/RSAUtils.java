@@ -1,17 +1,11 @@
 package net.renfei.sdk.utils;
 
-import org.apache.commons.codec.binary.Base64;
-
 import javax.crypto.Cipher;
-import java.security.KeyFactory;
-import java.security.KeyPair;
-import java.security.KeyPairGenerator;
-import java.security.NoSuchAlgorithmException;
-import java.security.SecureRandom;
-import java.security.interfaces.RSAPrivateKey;
-import java.security.interfaces.RSAPublicKey;
+import java.security.*;
+import java.security.spec.InvalidKeySpecException;
 import java.security.spec.PKCS8EncodedKeySpec;
 import java.security.spec.X509EncodedKeySpec;
+import java.util.Base64;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -21,6 +15,8 @@ import java.util.Map;
  * @author RenFei
  */
 public class RSAUtils {
+    public static final String ALGORITHM = "RSA";
+
     /**
      * 随机生成密钥对
      *
@@ -28,20 +24,16 @@ public class RSAUtils {
      */
     public static Map<Integer, String> genKeyPair(int keySize) {
         Map<Integer, String> keyMap = new HashMap<>();
+        PrivateKey privateKey;
+        PublicKey publicKey;
         try {
-            // KeyPairGenerator类用于生成公钥和私钥对，基于RSA算法生成对象
-            KeyPairGenerator keyPairGen = KeyPairGenerator.getInstance("RSA");
-            // 初始化密钥对生成器，密钥大小为96-1024位
-            keyPairGen.initialize(keySize, new SecureRandom());
-            // 生成一个密钥对，保存在keyPair中
-            KeyPair keyPair = keyPairGen.generateKeyPair();
-            // 得到私钥
-            RSAPrivateKey privateKey = (RSAPrivateKey) keyPair.getPrivate();
-            // 得到公钥
-            RSAPublicKey publicKey = (RSAPublicKey) keyPair.getPublic();
-            String publicKeyString = new String(Base64.encodeBase64(publicKey.getEncoded()));
-            // 得到私钥字符串
-            String privateKeyString = new String(Base64.encodeBase64((privateKey.getEncoded())));
+            KeyPairGenerator keyGen = KeyPairGenerator.getInstance("RSA");
+            keyGen.initialize(keySize);
+            KeyPair pair = keyGen.generateKeyPair();
+            privateKey = pair.getPrivate();
+            publicKey = pair.getPublic();
+            String publicKeyString = Base64.getEncoder().encodeToString(publicKey.getEncoded());
+            String privateKeyString = Base64.getEncoder().encodeToString(privateKey.getEncoded());
             // 将公钥和私钥保存到Map
             //0表示公钥
             keyMap.put(0, publicKeyString);
@@ -61,13 +53,9 @@ public class RSAUtils {
      * @throws Exception 加密过程中的异常信息
      */
     public static String encrypt(String str, String publicKey) throws Exception {
-        //base64编码的公钥
-        byte[] decoded = Base64.decodeBase64(publicKey);
-        RSAPublicKey pubKey = (RSAPublicKey) KeyFactory.getInstance("RSA").generatePublic(new X509EncodedKeySpec(decoded));
-        //RSA加密
-        Cipher cipher = Cipher.getInstance("RSA");
-        cipher.init(Cipher.ENCRYPT_MODE, pubKey);
-        return Base64.encodeBase64String(cipher.doFinal(str.getBytes("UTF-8")));
+        Cipher cipher = Cipher.getInstance(ALGORITHM);
+        cipher.init(Cipher.ENCRYPT_MODE, getPublicKey(publicKey));
+        return Base64.getEncoder().encodeToString(cipher.doFinal(str.getBytes("UTF-8")));
     }
 
     /**
@@ -79,14 +67,40 @@ public class RSAUtils {
      * @throws Exception 解密过程中的异常信息
      */
     public static String decrypt(String str, String privateKey) throws Exception {
-        //64位解码加密后的字符串
-        byte[] inputByte = Base64.decodeBase64(str.getBytes("UTF-8"));
-        //base64编码的私钥
-        byte[] decoded = Base64.decodeBase64(privateKey);
-        RSAPrivateKey priKey = (RSAPrivateKey) KeyFactory.getInstance("RSA").generatePrivate(new PKCS8EncodedKeySpec(decoded));
-        //RSA解密
-        Cipher cipher = Cipher.getInstance("RSA");
-        cipher.init(Cipher.DECRYPT_MODE, priKey);
-        return new String(cipher.doFinal(inputByte));
+        Cipher cipher = Cipher.getInstance(ALGORITHM);
+        cipher.init(Cipher.DECRYPT_MODE, getPrivateKey(privateKey));
+        return new String(cipher.doFinal(Base64.getDecoder().decode(str)), "UTF-8");
+    }
+
+    public static PublicKey getPublicKey(String base64PublicKey) {
+        PublicKey publicKey = null;
+        try {
+            X509EncodedKeySpec keySpec = new X509EncodedKeySpec(Base64.getDecoder().decode(base64PublicKey.getBytes()));
+            KeyFactory keyFactory = KeyFactory.getInstance("RSA");
+            publicKey = keyFactory.generatePublic(keySpec);
+            return publicKey;
+        } catch (NoSuchAlgorithmException e) {
+            e.printStackTrace();
+        } catch (InvalidKeySpecException e) {
+            e.printStackTrace();
+        }
+        return publicKey;
+    }
+
+    public static PrivateKey getPrivateKey(String base64PrivateKey) {
+        PrivateKey privateKey = null;
+        PKCS8EncodedKeySpec keySpec = new PKCS8EncodedKeySpec(Base64.getDecoder().decode(base64PrivateKey.getBytes()));
+        KeyFactory keyFactory = null;
+        try {
+            keyFactory = KeyFactory.getInstance("RSA");
+        } catch (NoSuchAlgorithmException e) {
+            e.printStackTrace();
+        }
+        try {
+            privateKey = keyFactory.generatePrivate(keySpec);
+        } catch (InvalidKeySpecException e) {
+            e.printStackTrace();
+        }
+        return privateKey;
     }
 }

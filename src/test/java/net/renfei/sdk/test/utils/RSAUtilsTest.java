@@ -14,13 +14,17 @@ import java.util.Map;
 public class RSAUtilsTest {
     @Test
     public void reaTest() {
-        Map<Integer, String> keyMap = RSAUtils.genKeyPair(1024);
+        Map<Integer, String> keyMap = RSAUtils.genKeyPair(2048);
         //加密字符串
         String message = "test";
         try {
             String encrypt = RSAUtils.encrypt(message, keyMap.get(0));
+            System.out.println(keyMap.get(0));
+            System.out.println(encrypt);
+            System.out.println(keyMap.get(1));
             Assert.assertEquals(message, RSAUtils.decrypt(encrypt, keyMap.get(1)));
         } catch (Exception ex) {
+            ex.printStackTrace();
             Assert.assertNull(ex);
         }
     }
