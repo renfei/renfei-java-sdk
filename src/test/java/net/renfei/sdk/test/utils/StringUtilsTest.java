@@ -18,5 +18,7 @@ public class StringUtilsTest {
         Assert.assertFalse(StringUtils.isEmail("ab##@test.com"));
         Assert.assertTrue(StringUtils.isEmail("test.test@test-test.com"));
         Assert.assertTrue(StringUtils.isEmail("test.test@test.test.com"));
+        Assert.assertNull(StringUtils.signature());
+        Assert.assertNotNull(StringUtils.signature("test", "ttt", "eee", "ttt"));
     }
 }

@@ -4,6 +4,7 @@ import net.renfei.sdk.comm.StateCode;
 import net.renfei.sdk.utils.BeanUtils;
 import net.renfei.sdk.utils.EncryptionUtils;
 import net.renfei.sdk.utils.RandomStringUtils;
+import net.renfei.sdk.utils.StringUtils;
 
 import java.util.Arrays;
 
@@ -176,16 +177,6 @@ public final class APIResult<T> {
      * 对消息进行签名
      */
     private void signature() {
-        this.timestamp = (int) (System.currentTimeMillis() / 1000);
-        this.nonce = RandomStringUtils.getRandomString(16);
-        //字典排序
-        String[] str = {this.timestamp.toString(), this.nonce};
-        Arrays.sort(str);
-        StringBuilder sb = new StringBuilder();
-        //将参数拼接成一个字符串进行sha1加密
-        for (String param : str) {
-            sb.append(param);
-        }
-        this.signature = EncryptionUtils.encrypt("SHA1", sb.toString());
+        this.signature = StringUtils.signature(this.timestamp.toString(), this.nonce);
     }
 }

@@ -1,5 +1,7 @@
 package net.renfei.sdk.utils;
 
+import java.util.Arrays;
+
 /**
  * String工具类
  *
@@ -89,5 +91,24 @@ public class StringUtils {
             return false;
         }
         return phone.matches(CHINA_PHONE_MVNO_ALL);
+    }
+
+    /**
+     * 签名，先进行字典排序，再进行SHA1
+     *
+     * @param arr 参与签名的值
+     * @return
+     */
+    public static String signature(String... arr) {
+        if (BeanUtils.isEmpty(arr)) {
+            return null;
+        }
+        Arrays.sort(arr);
+        StringBuilder sb = new StringBuilder();
+        //将参数拼接成一个字符串进行sha1加密
+        for (String param : arr) {
+            sb.append(param);
+        }
+        return EncryptionUtils.encrypt("SHA1", sb.toString());
     }
 }
