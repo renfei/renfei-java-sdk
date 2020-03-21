@@ -1,5 +1,5 @@
 <p align="center">
-<a href=" https://www.renfei.net"><img src="https://cdn.renfei.net/images/renfei_sdk_for_java.jpg"></a>
+<a href=" https://www.renfei.net"><img src="https://cdn.renfei.net/images/sdk.renfei.net.jpg"></a>
 </p>
 
 <h1 align="center">RenFei SDK for Java</h1>
