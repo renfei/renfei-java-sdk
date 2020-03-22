@@ -1,1 +1,20 @@
-theme: jekyll-theme-slate
+title: sdk.renfei.net
+logo: https://cdn.renfei.net/images/sdk.renfei.net.jpg
+description: 收集开发中常用的工具代码，以方便在各个项目中重新利用它们。虽然程序员们都热衷于重复的"造轮子"，但这样是不对的。
+show_downloads: true
+analytics: true
+google_analytics: UA-141370164-3
+baidu_tongji: b60f4f3da7d660d53969658d0bdcb3ad
+theme: jekyll-theme-minimal
+lang: zh-CN
+github:
+  is_project_page: true
+  is_user_page: true
+  repository_nwo: RenFei.Net
+  owner: NeilRen(任霏)
+  owner_url: https://github.com/NeilRen
+  zip_url: https://github.com/renfei-net/renfei-java-sdk/archive/master.zip
+  packages: https://github.com/renfei-net/renfei-java-sdk/packages/152444
+  repository_url: https://github.com/renfei-net/renfei-java-sdk
+sdk:
+  version: 0.0.10
