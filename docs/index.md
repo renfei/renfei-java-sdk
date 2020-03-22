@@ -45,7 +45,9 @@ layout: default
 
 - net.renfei.sdk
   - comm
+    - [StateCode](docs/comm/StateCode.html)
   - entity
+    - [APIResult](docs/entity/APIResult.html)
   - http
   - utils
     - [AESUtil](docs/utils/AESUtil.html)

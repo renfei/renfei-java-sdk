@@ -21,7 +21,7 @@ Assert.assertTrue(StringUtils.isEmail("test.test@test.test.com"));
 ### net.renfei.sdk.utils.StringUtils.isChinaPhone
 此方法可用于判断字符串是否是 **中国** 的手机号码，案例：
 ```java
-Assert.assertTrue(StringUtils.isEmail("130001001234"));
+Assert.assertTrue(StringUtils.isChinaPhone("130001001234"));
 ```
 ### net.renfei.sdk.utils.StringUtils.isChinaMobilePhone
 此方法可用于判断字符串是否是 **中国移动** 的手机号码。注意：由于中国大陆允许用户携号转网，对于携号转网的手机号并不能准确的判断。
