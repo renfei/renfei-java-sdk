@@ -26,7 +26,7 @@
 <dependency>
     <groupId>net.renfei</groupId>
     <artifactId>sdk</artifactId>
-    <version>0.0.12</version>
+    <version>0.0.13</version>
 </dependency>
 ```
 ## 说明文档

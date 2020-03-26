@@ -225,6 +225,32 @@ public class DateUtils {
     }
 
     /**
+     * 获取当前日期指定分钟之后的日期.
+     *
+     * @param num 相隔分钟
+     * @return Date 日期
+     * @since 1.0
+     */
+    public static Date nextMinutes(int num) {
+        Calendar curr = Calendar.getInstance();
+        curr.set(Calendar.MINUTE, curr.get(Calendar.MINUTE) + num);
+        return curr.getTime();
+    }
+
+    /**
+     * 获取当前日期指定小时之后的日期.
+     *
+     * @param num 相隔小时
+     * @return Date 日期
+     * @since 1.0
+     */
+    public static Date nextHours(int num) {
+        Calendar curr = Calendar.getInstance();
+        curr.set(Calendar.HOUR_OF_DAY, curr.get(Calendar.HOUR_OF_DAY) + num);
+        return curr.getTime();
+    }
+
+    /**
      * 获取当前日期指定天数之后的日期.
      *
      * @param num 相隔天数

@@ -7,6 +7,7 @@ import java.util.Random;
  *
  * @author RenFei
  */
+@Deprecated
 public class RandomStringUtils {
     /**
      * 获取指定长度随机字符串
@@ -14,6 +15,7 @@ public class RandomStringUtils {
      * @param length
      * @return
      */
+    @Deprecated
     public static String getRandomString(int length) {
         Random random = new Random();
         StringBuffer sb = new StringBuffer();

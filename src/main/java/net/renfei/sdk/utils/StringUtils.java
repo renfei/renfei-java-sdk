@@ -1,6 +1,7 @@
 package net.renfei.sdk.utils;
 
 import java.util.Arrays;
+import java.util.Random;
 
 /**
  * String工具类
@@ -110,5 +111,51 @@ public class StringUtils {
             sb.append(param);
         }
         return EncryptionUtils.encrypt("SHA1", sb.toString());
+    }
+
+    /**
+     * 获取指定长度随机字符串
+     *
+     * @param length 长度
+     * @return
+     */
+    public static String getRandomString(int length) {
+        Random random = new Random();
+        StringBuffer sb = new StringBuffer();
+        for (int i = 0; i < length; i++) {
+            int number = random.nextInt(3);
+            long result = 0;
+            switch (number) {
+                case 0:
+                    result = Math.round(Math.random() * 25 + 65);
+                    sb.append((char) result);
+                    break;
+                case 1:
+                    result = Math.round(Math.random() * 25 + 97);
+                    sb.append((char) result);
+                    break;
+                case 2:
+                    sb.append(new Random().nextInt(10));
+                    break;
+                default:
+                    break;
+            }
+        }
+        return sb.toString();
+    }
+
+    /**
+     * 获取指定位数的随机数字串
+     *
+     * @param length 长度
+     * @return
+     */
+    public static String getRandomNumber(int length) {
+        Random r = new Random();
+        StringBuilder rs = new StringBuilder();
+        for (int i = 0; i < length; i++) {
+            rs.append(r.nextInt(10));
+        }
+        return rs.toString();
     }
 }

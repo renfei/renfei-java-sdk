@@ -20,5 +20,7 @@ public class StringUtilsTest {
         Assert.assertTrue(StringUtils.isEmail("test.test@test.test.com"));
         Assert.assertNull(StringUtils.signature());
         Assert.assertNotNull(StringUtils.signature("test", "ttt", "eee", "ttt"));
+        Assert.assertNotNull(StringUtils.getRandomString(12));
+        Assert.assertNotNull(StringUtils.getRandomNumber(12));
     }
 }
