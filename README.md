@@ -5,11 +5,11 @@
 <h1 align="center">RenFei SDK for Java</h1>
 
 <p align="center">
-<a href="https://search.maven.org/search?q=g:%22net.renfei%22%20AND%20a:%22sdk%22"><img src="https://img.shields.io/maven-central/v/net.renfei/sdk.svg?label=Maven%20Central" alt="Latest Stable Version"/></a>
-<a href="https://travis-ci.org/NeilRen/renfei-java-sdk"><img src="https://travis-ci.org/NeilRen/renfei-java-sdk.svg?branch=master"/></a>
-<a href='https://coveralls.io/github/NeilRen/renfei-java-sdk?branch=master'><img src='https://coveralls.io/repos/github/NeilRen/renfei-java-sdk/badge.svg?branch=master' alt='Coverage Status' /></a>
-<a href="https://codebeat.co/projects/github-com-neilren-renfei-java-sdk-master"><img src="https://codebeat.co/badges/8fc75bd7-f1c3-4383-bbec-e752d71138d2" /></a>
-<a href="https://ci.appveyor.com/project/NeilRen/renfei-java-sdk"><img src="https://ci.appveyor.com/api/projects/status/ym3ev2dx20715too?svg=true"/></a>
+<a href="https://search.maven.org/search?q=g:%22net.renfei%22%20AND%20a:%22sdk%22" target="_blank"><img src="https://img.shields.io/maven-central/v/net.renfei/sdk.svg?label=Maven%20Central" alt="Latest Stable Version"/></a>
+<a href="https://travis-ci.org/NeilRen/renfei-java-sdk" target="_blank"><img src="https://travis-ci.org/NeilRen/renfei-java-sdk.svg?branch=master"/></a>
+<a href='https://coveralls.io/github/NeilRen/renfei-java-sdk?branch=master' target="_blank"><img src='https://coveralls.io/repos/github/NeilRen/renfei-java-sdk/badge.svg?branch=master' alt='Coverage Status' /></a>
+<a href="https://codebeat.co/projects/github-com-neilren-renfei-java-sdk-master" target="_blank"><img src="https://codebeat.co/badges/8fc75bd7-f1c3-4383-bbec-e752d71138d2" /></a>
+<a href="https://ci.appveyor.com/project/NeilRen/renfei-java-sdk" target="_blank"><img src="https://ci.appveyor.com/api/projects/status/ym3ev2dx20715too?svg=true"/></a>
 </p>
 
 收集开发中常用的代码工具。虽然程序员们都热衷于重复的"造轮子"，但这样是不对的，如果代码有问题你应该尝试去修复，而不是重新再造一个轮子出来。所以我收集开发中常用的工具代码，以方便在各个项目中重新利用它们。如果您在使用 RenFei SDK for Java 的过程中遇到任何问题，欢迎在当前 GitHub [提交 Issues](https://github.com/NeilRen/renfei-java-sdk/issues/new)。
@@ -26,6 +26,9 @@
 <dependency>
     <groupId>net.renfei</groupId>
     <artifactId>sdk</artifactId>
-    <version>0.0.11</version>
+    <version>0.0.12</version>
 </dependency>
 ```
+## 说明文档
+详细的说明文档请访问<a href="https://sdk.renfei.net" target="_blank">sdk.renfei.net</a>。  
+更多技术类文章和macOS破解软件分享请访问<a href="https://www.renfei.net" target="_blank">任霏博客</a>。

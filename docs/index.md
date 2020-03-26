@@ -53,6 +53,7 @@ layout: default
     - [AESUtil](docs/utils/AESUtil.html)
     - [BeanUtils](docs/utils/BeanUtils.html)
     - [Builder](docs/utils/Builder.html)
+    - [DateUtil](docs/utils/DateUtil.html)
     - [EncryptionUtils](docs/utils/EncryptionUtils.html)
     - [GoogleAuthenticator](docs/utils/GoogleAuthenticator.html)
     - [HttpUtils](docs/utils/HttpUtils.html)

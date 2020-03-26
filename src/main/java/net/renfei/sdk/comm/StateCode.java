@@ -7,6 +7,10 @@ package net.renfei.sdk.comm;
  */
 public enum StateCode {
     /**
+     * 执行失败
+     */
+    Failure(100, "失败"),
+    /**
      * 完成请求
      */
     OK(200, "成功"),
