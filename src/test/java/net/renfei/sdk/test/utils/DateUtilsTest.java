@@ -1,12 +1,13 @@
 package net.renfei.sdk.test.utils;
 
+import net.renfei.sdk.test.TestApplication;
 import net.renfei.sdk.utils.DateUtils;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 /**
  * @author RenFei
  */
-public class DateUtilsTest {
+public class DateUtilsTest extends TestApplication {
     @Test
     public void test(){
         System.out.println(DateUtils.getDateTime());

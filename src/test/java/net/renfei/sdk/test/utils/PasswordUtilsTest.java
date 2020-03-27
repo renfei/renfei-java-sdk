@@ -1,14 +1,15 @@
 package net.renfei.sdk.test.utils;
 
+import net.renfei.sdk.test.TestApplication;
 import net.renfei.sdk.utils.PasswordUtils;
-import org.junit.Assert;
-import org.junit.Test;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
 
-public class PasswordUtilsTest {
+public class PasswordUtilsTest extends TestApplication {
     @Test
     public void testPassword() throws PasswordUtils.CannotPerformOperationException {
         String password = "MyPassword", correctHash;
         correctHash = PasswordUtils.createHash(password);
-        Assert.assertTrue(PasswordUtils.verifyPassword(password, correctHash));
+        Assertions.assertTrue(PasswordUtils.verifyPassword(password, correctHash));
     }
 }

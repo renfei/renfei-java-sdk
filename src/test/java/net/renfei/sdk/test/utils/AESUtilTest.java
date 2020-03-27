@@ -1,15 +1,16 @@
 package net.renfei.sdk.test.utils;
 
+import net.renfei.sdk.test.TestApplication;
 import net.renfei.sdk.utils.AESUtil;
-import org.junit.Assert;
-import org.junit.Test;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
 
 /**
  * AES对称加解密
  *
  * @author RenFei
  */
-public class AESUtilTest {
+public class AESUtilTest extends TestApplication {
     @Test
     public void aesTest() throws Exception {
         String key = "abcdefghiklmnopq";
@@ -19,6 +20,6 @@ public class AESUtilTest {
         System.out.println("Key --> " + key);
         System.out.println("encryptedString --> " + encryptedString);
         System.out.println("decryptedString --> " + decryptedString);
-        Assert.assertEquals(message, decryptedString);
+        Assertions.assertEquals(message, decryptedString);
     }
 }

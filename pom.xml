@@ -11,22 +11,6 @@
     <url>http://www.renfei.net</url>
     <description>RenFei Software Development Kit for Java</description>
 
-    <distributionManagement>
-        <snapshotRepository>
-            <id>ossrh</id>
-            <url>https://oss.sonatype.org/content/repositories/snapshots</url>
-        </snapshotRepository>
-        <repository>
-            <id>ossrh</id>
-            <url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
-        </repository>
-        <!--<repository>-->
-            <!--<id>github</id>-->
-            <!--<name>GitHub OWNER Apache Maven Packages</name>-->
-            <!--<url>https://maven.pkg.github.com/renfei-net/renfei-java-sdk</url>-->
-        <!--</repository>-->
-    </distributionManagement>
-
     <licenses>
         <license>
             <name>The Apache License, Version 2.0</name>
@@ -45,6 +29,10 @@
             <id>renfei</id>
             <name>RenFei</name>
             <email>i@renfei.net</email>
+            <roles>
+                <role>owner</role>
+                <role>developer</role>
+            </roles>
             <organization>RENFEI.NET</organization>
             <organizationUrl>https://www.renfei.net</organizationUrl>
         </developer>
@@ -52,7 +40,7 @@
 
     <properties>
         <java.version>1.8</java.version>
-        <junit.version>4.13</junit.version>
+        <junit.version>5.6.1</junit.version>
         <httpclient.version>4.5.12</httpclient.version>
         <fastjson.version>1.2.67</fastjson.version>
         <slf4j.version>1.7.30</slf4j.version>
@@ -61,9 +49,10 @@
     </properties>
     <dependencies>
         <dependency>
-            <groupId>junit</groupId>
-            <artifactId>junit</artifactId>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter-api</artifactId>
             <version>${junit.version}</version>
+            <scope>test</scope>
         </dependency>
         <dependency>
             <groupId>org.slf4j</groupId>
@@ -175,17 +164,6 @@
                 </executions>
             </plugin>
             <plugin>
-                <groupId>org.sonatype.plugins</groupId>
-                <artifactId>nexus-staging-maven-plugin</artifactId>
-                <version>1.6.3</version>
-                <extensions>true</extensions>
-                <configuration>
-                    <serverId>ossrh</serverId>
-                    <nexusUrl>https://oss.sonatype.org/</nexusUrl>
-                    <autoReleaseAfterClose>true</autoReleaseAfterClose>
-                </configuration>
-            </plugin>
-            <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-release-plugin</artifactId>
                 <version>2.3.2</version>
@@ -198,4 +176,45 @@
             </plugin>
         </plugins>
     </build>
+
+    <profiles>
+        <profile>
+            <id>github</id>
+            <distributionManagement>
+                <repository>
+                    <id>github</id>
+                    <name>GitHub OWNER Apache Maven Packages</name>
+                    <url>https://maven.pkg.github.com/renfei-net/renfei-java-sdk</url>
+                </repository>
+            </distributionManagement>
+        </profile>
+        <profile>
+            <id>sonatype</id>
+            <distributionManagement>
+                <snapshotRepository>
+                    <id>ossrh</id>
+                    <url>https://oss.sonatype.org/content/repositories/snapshots</url>
+                </snapshotRepository>
+                <repository>
+                    <id>ossrh</id>
+                    <url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
+                </repository>
+            </distributionManagement>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>org.sonatype.plugins</groupId>
+                        <artifactId>nexus-staging-maven-plugin</artifactId>
+                        <version>1.6.3</version>
+                        <extensions>true</extensions>
+                        <configuration>
+                            <serverId>ossrh</serverId>
+                            <nexusUrl>https://oss.sonatype.org/</nexusUrl>
+                            <autoReleaseAfterClose>true</autoReleaseAfterClose>
+                        </configuration>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+    </profiles>
 </project>

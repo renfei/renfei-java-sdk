@@ -1,19 +1,20 @@
 package net.renfei.sdk.test.utils;
 
+import net.renfei.sdk.test.TestApplication;
 import net.renfei.sdk.utils.GoogleAuthenticator;
-import org.junit.Assert;
-import org.junit.Test;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
 
 /**
  * 谷歌身份验证器测试
  *
  * @author RenFei
  */
-public class GoogleAuthenticatorTest {
+public class GoogleAuthenticatorTest extends TestApplication {
     @Test
     public void test() {
         String secretKey = GoogleAuthenticator.generateSecretKey("abc123");
         String totp = GoogleAuthenticator.genTotpString("RENFEI.NET", "Tester", secretKey);
-        Assert.assertFalse(GoogleAuthenticator.authcode("123456", secretKey));
+        Assertions.assertFalse(GoogleAuthenticator.authcode("123456", secretKey));
     }
 }

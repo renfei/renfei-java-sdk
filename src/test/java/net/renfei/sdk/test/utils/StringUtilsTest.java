@@ -1,26 +1,27 @@
 package net.renfei.sdk.test.utils;
 
+import net.renfei.sdk.test.TestApplication;
 import net.renfei.sdk.utils.StringUtils;
-import org.junit.Assert;
-import org.junit.Test;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
 
 /**
  * 字符串工具测试
  *
  * @author RenFei
  */
-public class StringUtilsTest {
+public class StringUtilsTest extends TestApplication {
     @Test
     public void emailFormatTest() {
-        Assert.assertFalse(StringUtils.isEmail("w#test.com"));
-        Assert.assertFalse(StringUtils.isEmail("ab@cn"));
-        Assert.assertFalse(StringUtils.isEmail("ab@cn.*.com"));
-        Assert.assertFalse(StringUtils.isEmail("ab##@test.com"));
-        Assert.assertTrue(StringUtils.isEmail("test.test@test-test.com"));
-        Assert.assertTrue(StringUtils.isEmail("test.test@test.test.com"));
-        Assert.assertNull(StringUtils.signature());
-        Assert.assertNotNull(StringUtils.signature("test", "ttt", "eee", "ttt"));
-        Assert.assertNotNull(StringUtils.getRandomString(12));
-        Assert.assertNotNull(StringUtils.getRandomNumber(12));
+        Assertions.assertFalse(StringUtils.isEmail("w#test.com"));
+        Assertions.assertFalse(StringUtils.isEmail("ab@cn"));
+        Assertions.assertFalse(StringUtils.isEmail("ab@cn.*.com"));
+        Assertions.assertFalse(StringUtils.isEmail("ab##@test.com"));
+        Assertions.assertTrue(StringUtils.isEmail("test.test@test-test.com"));
+        Assertions.assertTrue(StringUtils.isEmail("test.test@test.test.com"));
+        Assertions.assertNull(StringUtils.signature());
+        Assertions.assertNotNull(StringUtils.signature("test", "ttt", "eee", "ttt"));
+        Assertions.assertNotNull(StringUtils.getRandomString(12));
+        Assertions.assertNotNull(StringUtils.getRandomNumber(12));
     }
 }
