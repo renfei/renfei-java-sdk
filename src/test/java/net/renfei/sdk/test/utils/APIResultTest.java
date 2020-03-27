@@ -13,10 +13,17 @@ public class APIResultTest {
     public void testAPIResult() {
         System.out.println("==== " + this.getClass().getName() + " ====");
         Assertions.assertNotNull(APIResult.success());
-        Assertions.assertNotNull(APIResult.builder()
+        APIResult apiResult = APIResult.builder()
                 .code(StateCode.OK)
                 .message("test")
                 .data("test")
-                .build().toString());
+                .build();
+        Assertions.assertNotNull(apiResult);
+        System.out.println(apiResult.getCode());
+        System.out.println(apiResult.getMessage());
+        System.out.println(apiResult.getNonce());
+        System.out.println(apiResult.getSignature());
+        System.out.println(apiResult.getTimestamp());
+        System.out.println(apiResult.getData());
     }
 }

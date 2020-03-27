@@ -14,15 +14,20 @@ public class StringUtilsTest {
     @Test
     public void testStringUtils() {
         System.out.println("==== " + this.getClass().getName() + " ====");
+        Assertions.assertFalse(StringUtils.isEmail(null));
         Assertions.assertFalse(StringUtils.isEmail("w#test.com"));
         Assertions.assertFalse(StringUtils.isEmail("ab@cn"));
         Assertions.assertFalse(StringUtils.isEmail("ab@cn.*.com"));
         Assertions.assertFalse(StringUtils.isEmail("ab##@test.com"));
         Assertions.assertTrue(StringUtils.isEmail("test.test@test-test.com"));
         Assertions.assertTrue(StringUtils.isEmail("test.test@test.test.com"));
+        Assertions.assertFalse(StringUtils.isChinaPhone(null));
         Assertions.assertTrue(StringUtils.isChinaPhone("13001001234"));
+        Assertions.assertFalse(StringUtils.isChinaMobilePhone(null));
         Assertions.assertTrue(StringUtils.isChinaMobilePhone("13901001234"));
+        Assertions.assertFalse(StringUtils.isChinaUnicomePhone(null));
         Assertions.assertTrue(StringUtils.isChinaUnicomePhone("13001001234"));
+        Assertions.assertFalse(StringUtils.isChinaTelecomPhone(null));
         Assertions.assertTrue(StringUtils.isChinaTelecomPhone("18901001234"));
         Assertions.assertTrue(StringUtils.isChinaMvnoPhone("17001001234"));
         Assertions.assertNull(StringUtils.signature());

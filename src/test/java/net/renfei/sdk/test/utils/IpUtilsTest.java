@@ -39,7 +39,26 @@ public class IpUtilsTest {
 
             @Override
             public String getHeader(String s) {
-                return null;
+                switch (s) {
+                    case "x-forwarded-for":
+                        return "127.0.0.1,123.123.123.123";
+                    case "Proxy-Client-IP":
+                        return "127.0.0.1";
+                    case "WL-Proxy-Client-IP":
+                        return "127.0.0.1";
+                    case "HTTP_CLIENT_IP":
+                        return "127.0.0.1";
+                    case "HTTP_X_FORWARDED_FOR":
+                        return "127.0.0.1";
+                    case "X-Real-IP":
+                        return "127.0.0.1";
+                    case "Cf-Connecting-IP":
+                        return "127.0.0.1";
+                    case "AWS-APIGateway-sourceIp":
+                        return "127.0.0.1";
+                    default:
+                        return "127.0.0.1";
+                }
             }
 
             @Override
@@ -269,7 +288,7 @@ public class IpUtilsTest {
 
             @Override
             public String getRemoteAddr() {
-                return "127.0.0.1";
+                return "127.0.0.1,123.123.123.123";
             }
 
             @Override
