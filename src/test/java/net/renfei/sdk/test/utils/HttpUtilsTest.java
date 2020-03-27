@@ -16,6 +16,7 @@ public class HttpUtilsTest extends TestApplication {
 
     @Test
     public void testHttpGet() throws IOException {
+        System.out.println("==== " + this.getClass().getName() + " ====");
         HttpRequest request = HttpRequest.create().url("http://ip.renfei.net");
         HttpResult result = HttpUtils.get(request);
         log.info(result.getResponseText());

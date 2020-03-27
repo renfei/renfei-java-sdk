@@ -15,6 +15,7 @@ import java.util.Map;
 public class RSAUtilsTest extends TestApplication {
         @Test
         public void reaTest() {
+            System.out.println("==== " + this.getClass().getName() + " ====");
             //服务器端的
             Map<Integer, String> serverKeyMap = RSAUtils.genKeyPair(2048);
             //客户端的

@@ -13,6 +13,7 @@ import org.junit.jupiter.api.Test;
 public class AESUtilTest extends TestApplication {
     @Test
     public void aesTest() throws Exception {
+        System.out.println("==== " + this.getClass().getName() + " ====");
         String key = "abcdefghiklmnopq";
         String message = "test";
         String encryptedString = AESUtil.encrypt(message, key);

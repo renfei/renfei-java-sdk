@@ -13,6 +13,7 @@ import org.junit.jupiter.api.Test;
 public class GoogleAuthenticatorTest extends TestApplication {
     @Test
     public void test() {
+        System.out.println("==== " + this.getClass().getName() + " ====");
         String secretKey = GoogleAuthenticator.generateSecretKey("abc123");
         String totp = GoogleAuthenticator.genTotpString("RENFEI.NET", "Tester", secretKey);
         Assertions.assertFalse(GoogleAuthenticator.authcode("123456", secretKey));

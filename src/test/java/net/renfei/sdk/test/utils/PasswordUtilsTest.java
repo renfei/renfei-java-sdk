@@ -8,6 +8,7 @@ import org.junit.jupiter.api.Test;
 public class PasswordUtilsTest extends TestApplication {
     @Test
     public void testPassword() throws PasswordUtils.CannotPerformOperationException {
+        System.out.println("==== " + this.getClass().getName() + " ====");
         String password = "MyPassword", correctHash;
         correctHash = PasswordUtils.createHash(password);
         Assertions.assertTrue(PasswordUtils.verifyPassword(password, correctHash));

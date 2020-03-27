@@ -11,6 +11,7 @@ import java.util.List;
 public class ListUtilsTest extends TestApplication {
     @Test
     public void testListGetOne(){
+        System.out.println("==== " + this.getClass().getName() + " ====");
         List<String> stringList=new ArrayList<String>();
         Assertions.assertNull(ListUtils.getOne(stringList));
         stringList.add("test1");
