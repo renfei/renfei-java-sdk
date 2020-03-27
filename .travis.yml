@@ -6,9 +6,9 @@ jdk:
   - openjdk10
   - openjdk11
 
-branches: # build only on these branches
-  only:
-    - master
+#branches: # build only on these branches
+#  only:
+#    - master
 
 script:
   # Start Proxy
