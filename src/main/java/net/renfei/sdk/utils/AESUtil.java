@@ -1,7 +1,6 @@
 package net.renfei.sdk.utils;
 
 import org.apache.commons.codec.binary.Base64;
-import sun.misc.BASE64Decoder;
 
 import javax.crypto.Cipher;
 import javax.crypto.KeyGenerator;
@@ -37,7 +36,7 @@ public class AESUtil {
      * @throws Exception
      */
     public static byte[] base64Decode(String base64Code) throws Exception {
-        return BeanUtils.isEmpty(base64Code) ? null : new BASE64Decoder().decodeBuffer(base64Code);
+        return BeanUtils.isEmpty(base64Code) ? null : Base64.decodeBase64(base64Code);
     }
 
 
