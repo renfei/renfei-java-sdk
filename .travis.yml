@@ -11,16 +11,12 @@ jdk:
 #    - master
 
 script:
-  # Start Proxy
-  - sudo o_o &
-  # Test
-  - mvn test -B -f pom.xml
+  - mvn clean package -B -f pom.xml
 
 after_success:
   - bash <(curl -s https://codecov.io/bash)
-  - mvn clean test
-  - mvn jacoco:report
-  - mvn cobertura:cobertura coveralls:report -DrepoToken="${coveralls_token}"
+  - mvn clean test org.jacoco:jacoco-maven-plugin:prepare-agent install org.jacoco:jacoco-maven-plugin:report
+  - mvn org.eluder.coveralls:coveralls-maven-plugin:report -DrepoToken="${coveralls_token}"
 
 matrix:
   allow_failures:
