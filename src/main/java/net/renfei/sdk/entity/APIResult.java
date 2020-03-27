@@ -177,6 +177,8 @@ public final class APIResult<T> {
      * 对消息进行签名
      */
     private void signature() {
+        this.timestamp = (int) (System.currentTimeMillis() / 1000);
+        this.nonce = StringUtils.getRandomString(16);
         this.signature = StringUtils.signature(this.timestamp.toString(), this.nonce);
     }
 }
