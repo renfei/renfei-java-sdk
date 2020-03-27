@@ -89,10 +89,6 @@ public final class APIResult<T> {
         return code;
     }
 
-    private void setCode(Integer code) {
-        this.code = code;
-    }
-
     public String getMessage() {
         if (BeanUtils.isEmpty(message)) {
             return stateCode.getDescribe();
@@ -100,32 +96,16 @@ public final class APIResult<T> {
         return message;
     }
 
-    private void setMessage(String message) {
-        this.message = message;
-    }
-
     public Integer getTimestamp() {
         return timestamp;
-    }
-
-    private void setTimestamp(Integer timestamp) {
-        this.timestamp = timestamp;
     }
 
     public T getData() {
         return data;
     }
 
-    private void setData(T data) {
-        this.data = data;
-    }
-
     public String getSignature() {
         return signature;
-    }
-
-    private void setSignature(String signature) {
-        this.signature = signature;
     }
 
     public String getNonce() {
