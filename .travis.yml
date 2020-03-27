@@ -18,7 +18,9 @@ script:
 
 after_success:
   - bash <(curl -s https://codecov.io/bash)
-  - mvn -DrepoToken=$coveralls_token clean cobertura:cobertura coveralls:report
+  - mvn clean test
+  - mvn jacoco:report
+  - mvn cobertura:cobertura coveralls:report -DrepoToken="${coveralls_token}"
 
 matrix:
   allow_failures:

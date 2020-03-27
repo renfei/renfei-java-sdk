@@ -18,6 +18,13 @@
         </license>
     </licenses>
 
+    <issueManagement>
+        <system>GitHub Issues</system>
+        <url>https://github.com/renfei-net/renfei-java-sdk/issues</url>
+    </issueManagement>
+
+    <inceptionYear>2020</inceptionYear>
+
     <scm>
         <connection>scm:git:git://github.com/renfei-net/renfei-java-sdk.git</connection>
         <developerConnection>scm:git:git@github.com:renfei-net/renfei-java-sdk.git</developerConnection>
@@ -35,6 +42,7 @@
             </roles>
             <organization>RENFEI.NET</organization>
             <organizationUrl>https://www.renfei.net</organizationUrl>
+            <timezone>+8</timezone>
         </developer>
     </developers>
 
@@ -148,6 +156,11 @@
                     <releaseProfiles>release</releaseProfiles>
                     <goals>deploy</goals>
                 </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.jacoco</groupId>
+                <artifactId>jacoco-maven-plugin</artifactId>
+                <version>0.8.5</version>
             </plugin>
             <plugin>
                 <groupId>org.eluder.coveralls</groupId>
