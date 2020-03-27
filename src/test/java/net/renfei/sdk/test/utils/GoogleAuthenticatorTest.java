@@ -13,8 +13,10 @@ public class GoogleAuthenticatorTest {
     @Test
     public void testGoogleAuthenticator() {
         System.out.println("==== " + this.getClass().getName() + " ====");
+        GoogleAuthenticator.setWindowSize(2);
         String secretKey = GoogleAuthenticator.generateSecretKey("abc123");
         String totp = GoogleAuthenticator.genTotpString("RENFEI.NET", "Tester", secretKey);
         Assertions.assertFalse(GoogleAuthenticator.authcode("123456", secretKey));
+        Assertions.assertFalse(GoogleAuthenticator.authcode("abc", secretKey));
     }
 }

@@ -89,7 +89,7 @@ public final class APIResult<T> {
         return code;
     }
 
-    public void setCode(Integer code) {
+    private void setCode(Integer code) {
         this.code = code;
     }
 
@@ -100,7 +100,7 @@ public final class APIResult<T> {
         return message;
     }
 
-    public void setMessage(String message) {
+    private void setMessage(String message) {
         this.message = message;
     }
 
@@ -108,7 +108,7 @@ public final class APIResult<T> {
         return timestamp;
     }
 
-    public void setTimestamp(Integer timestamp) {
+    private void setTimestamp(Integer timestamp) {
         this.timestamp = timestamp;
     }
 
@@ -116,7 +116,7 @@ public final class APIResult<T> {
         return data;
     }
 
-    public void setData(T data) {
+    private void setData(T data) {
         this.data = data;
     }
 
@@ -124,7 +124,7 @@ public final class APIResult<T> {
         return signature;
     }
 
-    public void setSignature(String signature) {
+    private void setSignature(String signature) {
         this.signature = signature;
     }
 
@@ -132,7 +132,7 @@ public final class APIResult<T> {
         return nonce;
     }
 
-    public void setNonce(String nonce) {
+    private void setNonce(String nonce) {
         this.nonce = nonce;
     }
 

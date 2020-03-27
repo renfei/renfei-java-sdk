@@ -11,5 +11,7 @@ public class PasswordUtilsTest {
         String password = "MyPassword", correctHash;
         correctHash = PasswordUtils.createHash(password);
         Assertions.assertTrue(PasswordUtils.verifyPassword(password, correctHash));
+        Assertions.assertFalse(PasswordUtils.verifyPassword(password, ""));
+        Assertions.assertFalse(PasswordUtils.verifyPassword(password, "test:test:test"));
     }
 }

@@ -30,6 +30,8 @@ public class RSAUtilsTest {
             String encryptAES = RSAUtils.encrypt(AESkey, clientPubKey);
             //客户端用自己的私钥解密拿到AES的秘钥
             Assertions.assertEquals(AESkey, RSAUtils.decrypt(encryptAES, clientKeyMap.get(1)));
+            Assertions.assertNull(RSAUtils.getPublicKey(""));
+            Assertions.assertNull(RSAUtils.getPrivateKey(""));
         } catch (Exception ex) {
             ex.printStackTrace();
             Assertions.assertNull(ex);

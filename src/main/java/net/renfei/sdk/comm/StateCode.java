@@ -67,15 +67,7 @@ public enum StateCode {
         return code;
     }
 
-    public void setCode(Integer code) {
-        this.code = code;
-    }
-
     public String getDescribe() {
         return describe;
-    }
-
-    public void setDescribe(String describe) {
-        this.describe = describe;
     }
 }
