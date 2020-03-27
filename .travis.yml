@@ -18,13 +18,9 @@ script:
 
 after_success:
   - bash <(curl -s https://codecov.io/bash)
-  - mvn clean cobertura:cobertura coveralls:report
+  - mvn -DrepoToken=$coveralls_token clean cobertura:cobertura coveralls:report
 
 matrix:
   allow_failures:
     - jdk: openjdk10
     - jdk: openjdk11
-
-env:
-  global:
-    - secure: $coveralls_token
