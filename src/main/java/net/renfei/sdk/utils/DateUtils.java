@@ -432,7 +432,6 @@ public class DateUtils {
      */
     public static String getNowTimeBefore(long seconds) {
         StringBuffer buffer = new StringBuffer();
-        buffer.append("上传于");
         if (seconds < 3600) {
             buffer.append((long) Math.floor(seconds / 60.0)).append("分钟前");
         } else if (seconds < 86400) {

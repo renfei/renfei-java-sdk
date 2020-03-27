@@ -1,6 +1,5 @@
 package net.renfei.sdk.test.utils;
 
-import net.renfei.sdk.test.TestApplication;
 import net.renfei.sdk.utils.AESUtil;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
@@ -10,9 +9,10 @@ import org.junit.jupiter.api.Test;
  *
  * @author RenFei
  */
-public class AESUtilTest extends TestApplication {
+public class AESUtilTest {
     @Test
-    public void aesTest() throws Exception {
+    public void testAESUtil() throws Exception {
+        System.out.println("==== " + this.getClass().getName() + " ====");
         String key = "abcdefghiklmnopq";
         String message = "test";
         String encryptedString = AESUtil.encrypt(message, key);
