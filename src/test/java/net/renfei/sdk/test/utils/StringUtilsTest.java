@@ -35,5 +35,16 @@ public class StringUtilsTest {
         Assertions.assertNotNull(StringUtils.getRandomString(12));
         Assertions.assertNotNull(StringUtils.getRandomNumber(12));
         Assertions.assertNotNull(RandomStringUtils.getRandomString(12));
+        String str = "abcd{'a':'b'}";
+        String encoded = StringUtils.encodeBase64(str.getBytes());
+        byte[] decoded = StringUtils.decodeBase64(encoded);
+        Assertions.assertEquals(str, new String(decoded));
+        String utf8Encoded = StringUtils.encodeUTF8StringBase64(str);
+        String utf8Decoded = StringUtils.decodeUTF8StringBase64(utf8Encoded);
+        Assertions.assertEquals(str, utf8Decoded);
+        String url = "== wo";
+        String urlEncoded = StringUtils.encodeURL(url);
+        String urlDecoded = StringUtils.decodeURL(urlEncoded);
+        Assertions.assertEquals(url, urlDecoded);
     }
 }
