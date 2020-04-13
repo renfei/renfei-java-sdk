@@ -1,19 +1,18 @@
 package net.renfei.sdk.test.utils;
 
+import lombok.extern.slf4j.Slf4j;
 import net.renfei.sdk.entity.MyIP;
 import net.renfei.sdk.http.HttpRequest;
 import net.renfei.sdk.http.HttpResult;
 import net.renfei.sdk.utils.HttpUtils;
 import org.junit.jupiter.api.Test;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 import java.io.IOException;
 import java.io.OutputStream;
 import java.util.HashMap;
 
+@Slf4j
 public class HttpUtilsTest {
-    private static final Logger log = LoggerFactory.getLogger(HttpUtilsTest.class);
 
     @Test
     public void testHttpGet() throws IOException {
