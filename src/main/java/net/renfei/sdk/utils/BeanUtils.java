@@ -34,4 +34,21 @@ public class BeanUtils {
         }
         return false;
     }
+
+    /**
+     * 判断对象是否为空，为空就返回指定的默认对象
+     *
+     * @param object        需要判断的对象
+     * @param defaultObject 为空时使用的默认对象
+     * @param <T>           类型
+     * @return 指定的类型的非空对象
+     */
+    public static <T> T isEmpty(T object, T defaultObject) {
+        boolean isEmptyBoolean = isEmpty(object);
+        if (isEmptyBoolean) {
+            return defaultObject;
+        } else {
+            return object;
+        }
+    }
 }

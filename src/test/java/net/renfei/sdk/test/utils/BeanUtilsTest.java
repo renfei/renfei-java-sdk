@@ -4,6 +4,7 @@ import net.renfei.sdk.utils.BeanUtils;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Optional;
@@ -48,5 +49,8 @@ public class BeanUtilsTest {
 
         Assertions.assertTrue(BeanUtils.isEmpty(nullOptional));
         Assertions.assertFalse(BeanUtils.isEmpty(notNullOptional));
+
+        String test = "";
+        Assertions.assertEquals("default", BeanUtils.isEmpty(test, "default"));
     }
 }
