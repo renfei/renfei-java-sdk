@@ -19,6 +19,20 @@ public class StringUtils {
     private static final String CHINA_PHONE_CHINA_UNICOM = "^(?:\\+?86)?1(?:3[0-2]|[578][56]|66)\\d{8}$";
     private static final String CHINA_PHONE_CHINA_TELECOM = "^(?:\\+?86)?1(?:3(?:3\\d|49)\\d|53\\d{2}|8[019]\\d{2}|7(?:[37]\\d{2}|40[0-5])|9[139]\\d{2})\\d{6}$";
     private static final String CHINA_PHONE_MVNO_ALL = "^(?:\\+?86)?1(?:7[01]|6[257])\\d{8}$";
+    private static final String DOMAIN_REGEX = "^(?:[a-z0-9](?:[a-z0-9-]{0,61}[a-z0-9])?\\.)+[a-z0-9][a-z0-9-]{0,61}[a-z0-9]$";
+
+    /**
+     * 判断是否是域名格式
+     *
+     * @param domain
+     * @return
+     */
+    public static boolean isDomain(String domain) {
+        if (BeanUtils.isEmpty(domain)) {
+            return false;
+        }
+        return domain.matches(DOMAIN_REGEX);
+    }
 
     /**
      * 判断是否是邮箱格式
