@@ -14,6 +14,9 @@ public class StringUtilsTest {
     @Test
     public void testStringUtils() {
         System.out.println("==== " + this.getClass().getName() + " ====");
+        Assertions.assertFalse(StringUtils.isDomain(null));
+        Assertions.assertFalse(StringUtils.isDomain("w#test.com"));
+        Assertions.assertTrue(StringUtils.isEmail("www.renfei.net"));
         Assertions.assertFalse(StringUtils.isEmail(null));
         Assertions.assertFalse(StringUtils.isEmail("w#test.com"));
         Assertions.assertFalse(StringUtils.isEmail("ab@cn"));
