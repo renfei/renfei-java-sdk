@@ -1,7 +1,5 @@
 package net.renfei.sdk.entity;
 
-import com.sun.istack.internal.NotNull;
-
 /**
  * <p>Title: WeChatMsgType</p>
  * <p>Description: 微信消息类型</p>
