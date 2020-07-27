@@ -5,6 +5,8 @@ import net.renfei.sdk.utils.StringUtils;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
+import java.math.BigInteger;
+
 /**
  * 字符串工具测试
  *
@@ -49,5 +51,10 @@ public class StringUtilsTest {
         String urlEncoded = StringUtils.encodeURL(url);
         String urlDecoded = StringUtils.decodeURL(urlEncoded);
         Assertions.assertEquals(url, urlDecoded);
+        StringUtils.delHtmlTags("<html>lalala</html>");
+        StringUtils.delHtmlTags("<html>lalala</html>");
+        String ip = "8.8.8.8";
+        BigInteger bigInteger = StringUtils.stringToBigInt(ip);
+        Assertions.assertEquals(ip, StringUtils.bigIntToString(bigInteger));
     }
 }
