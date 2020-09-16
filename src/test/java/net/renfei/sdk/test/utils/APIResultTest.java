@@ -25,12 +25,7 @@ public class APIResultTest extends Tests {
                         .data("test")
                         .build();
                 Assertions.assertNotNull(apiResult);
-                System.out.println(apiResult.getCode());
-                System.out.println(apiResult.getMessage());
-                System.out.println(apiResult.getNonce());
-                System.out.println(apiResult.getSignature());
-                System.out.println(apiResult.getTimestamp());
-                System.out.println(apiResult.getData());
+                System.out.println(apiResult);
             }
         };
         startTaskAllInOnce(100, taskTemp);
