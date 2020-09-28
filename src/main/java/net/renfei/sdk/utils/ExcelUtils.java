@@ -231,19 +231,19 @@ public class ExcelUtils {
         List<Map<String, String>> datas = new ArrayList<>();
         List<String> key = new ArrayList<>();
         //获取总行数
-        for (int j = 0; j < s.getPhysicalNumberOfRows(); j++) {
+        for (int j = 0; j < s.getLastRowNum() + 1; j++) {
             Map<String, String> data = new HashMap<>();
             // 取出第i行 getRow(index) 获取第(j)行
             Row row = s.getRow(j);
             if (j == 0) {
                 // 首行作为key
-                for (int k = 0; k < row.getPhysicalNumberOfCells(); k++) {
+                for (int k = 0; k < row.getLastCellNum(); k++) {
                     //取出第j行第k列的值
                     String value = getCellFormatValue(row.getCell(k));
                     key.add(value);
                 }
             } else {
-                for (int k = 0; k < row.getPhysicalNumberOfCells(); k++) {
+                for (int k = 0; k < row.getLastCellNum(); k++) {
                     //取出第j行第k列的值
                     String value = getCellFormatValue(row.getCell(k));
                     data.put(key.get(k), value);
@@ -270,11 +270,11 @@ public class ExcelUtils {
         HSSFSheet s = workbook.getSheetAt(0);
         List<List<String>> datas = new ArrayList<>();
         //获取总行数
-        for (int j = 0; j < s.getPhysicalNumberOfRows(); j++) {
+        for (int j = 0; j < s.getLastRowNum() + 1; j++) {
             List<String> data = new ArrayList<>();
             // 取出第i行 getRow(index) 获取第(j)行
             Row row = s.getRow(j);
-            for (int k = 0; k < row.getPhysicalNumberOfCells(); k++) {
+            for (int k = 0; k < row.getLastCellNum(); k++) {
                 //取出第j行第k列的值
                 data.add(getCellFormatValue(row.getCell(k)));
             }
@@ -300,19 +300,19 @@ public class ExcelUtils {
         List<Map<String, String>> datas = new ArrayList<>();
         List<String> key = new ArrayList<>();
         //获取总行数
-        for (int j = 0; j < s.getPhysicalNumberOfRows(); j++) {
+        for (int j = 0; j < s.getLastRowNum() + 1; j++) {
             Map<String, String> data = new HashMap<>();
             // 取出第i行 getRow(index) 获取第(j)行
             Row row = s.getRow(j);
             if (j == 0) {
                 // 首行作为key
-                for (int k = 0; k < row.getPhysicalNumberOfCells(); k++) {
+                for (int k = 0; k < row.getLastCellNum(); k++) {
                     //取出第j行第k列的值
                     String value = getCellFormatValue(row.getCell(k));
                     key.add(value);
                 }
             } else {
-                for (int k = 0; k < row.getPhysicalNumberOfCells(); k++) {
+                for (int k = 0; k < row.getLastCellNum(); k++) {
                     //取出第j行第k列的值
                     String value = getCellFormatValue(row.getCell(k));
                     data.put(key.get(k), value);
@@ -339,11 +339,11 @@ public class ExcelUtils {
         XSSFSheet s = workbook.getSheetAt(0);
         List<List<String>> datas = new ArrayList<>();
         //获取总行数
-        for (int j = 0; j < s.getPhysicalNumberOfRows(); j++) {
+        for (int j = 0; j < s.getLastRowNum() + 1; j++) {
             List<String> data = new ArrayList<>();
             // 取出第i行 getRow(index) 获取第(j)行
             Row row = s.getRow(j);
-            for (int k = 0; k < row.getPhysicalNumberOfCells(); k++) {
+            for (int k = 0; k < row.getLastCellNum(); k++) {
                 //取出第j行第k列的值
                 data.add(getCellFormatValue(row.getCell(k)));
             }
