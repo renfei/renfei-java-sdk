@@ -5,9 +5,9 @@ layout: default
 
 <p align="center">
 <a href="https://search.maven.org/search?q=g:%22net.renfei%22%20AND%20a:%22sdk%22" target="_blank"><img src="https://img.shields.io/maven-central/v/net.renfei/sdk.svg?label=Maven%20Central" alt="Latest Stable Version"/></a>
-<a href="https://travis-ci.org/renfei-net/renfei-java-sdk" target="_blank"><img src="https://travis-ci.org/renfei-net/renfei-java-sdk.svg?branch=master"/></a>
-<a href='https://coveralls.io/github/renfei-net/renfei-java-sdk?branch=master' target="_blank"><img src='https://coveralls.io/repos/github/renfei-net/renfei-java-sdk/badge.svg?branch=master' alt='Coverage Status' /></a>
-<a href="https://codebeat.co/projects/github-com-renfei-net-renfei-java-sdk-master" target="_blank"><img src="https://codebeat.co/badges/f0436930-23f8-4224-9f23-1a29a22d69d1" /></a>
+<a href="https://travis-ci.org/renfei/renfei-java-sdk" target="_blank"><img src="https://travis-ci.org/renfei/renfei-java-sdk.svg?branch=master"/></a>
+<a href='https://coveralls.io/github/renfei/renfei-java-sdk?branch=master' target="_blank"><img src='https://coveralls.io/repos/github/renfei/renfei-java-sdk/badge.svg?branch=master' alt='Coverage Status' /></a>
+<a href="https://codebeat.co/projects/github-com-renfei-renfei-java-sdk-master" target="_blank"><img src="https://codebeat.co/badges/f0436930-23f8-4224-9f23-1a29a22d69d1" /></a>
 <a href="https://ci.appveyor.com/project/NeilRen/renfei-java-sdk" target="_blank"><img src="https://ci.appveyor.com/api/projects/status/p4mfa2qpy1tbqxj9?svg=true"/></a>
 </p>
 

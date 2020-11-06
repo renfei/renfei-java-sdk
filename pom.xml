@@ -27,7 +27,7 @@
 
     <scm>
         <connection>scm:git:git://github.com/renfei/renfei-java-sdk.git</connection>
-        <developerConnection>scm:git:git@github.com:renfei-net/renfei-java-sdk.git</developerConnection>
+        <developerConnection>scm:git:git@github.com:renfei/renfei-java-sdk.git</developerConnection>
         <url>https://github.com/renfei/renfei-java-sdk</url>
     </scm>
 
@@ -219,7 +219,7 @@
                 <repository>
                     <id>github</id>
                     <name>GitHub OWNER Apache Maven Packages</name>
-                    <url>https://maven.pkg.github.com/renfei-net/renfei-java-sdk</url>
+                    <url>https://maven.pkg.github.com/renfei/renfei-java-sdk</url>
                 </repository>
             </distributionManagement>
         </profile>
