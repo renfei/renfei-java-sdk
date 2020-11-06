@@ -12,7 +12,7 @@ layout: default
 </p>
 
 <a href="https://www.renfei.net" target="_black">任霏主页</a>
-<a href="https://github.com/renfei-net/renfei-java-sdk" target="_black">项目主页</a>
+<a href="https://github.com/renfei/renfei-java-sdk" target="_black">项目主页</a>
 
 **sdk.renfei.net**是开发中常用的工具代码，以方便在各个项目中重新利用它们。虽然程序员们都热衷于重复的"造轮子"，但这样是不对的。
 
@@ -37,7 +37,7 @@ layout: default
 ```
 
 ### 通过引用Jar包安装
-> 您需要先提前下载好对应版本的Jar包，您可以<a href="https://github.com/renfei-net/renfei-java-sdk/packages/152444" target="_black">到这里</a>下载，在页面右侧的【Assets】下面点击对应的sdk-xx.jar即可将Jar包下载到本地。
+> 您需要先提前下载好对应版本的Jar包，您可以<a href="https://github.com/renfei/renfei-java-sdk/packages/152444" target="_black">到这里</a>下载，在页面右侧的【Assets】下面点击对应的sdk-xx.jar即可将Jar包下载到本地。
 
 将下载好的Jar包复制到您项目中的 _lib_ 文件夹中，在选择项目右键属性，选择添加库，添加Jar包即可引用到您的项目中。
 

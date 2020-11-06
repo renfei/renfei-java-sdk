@@ -17,6 +17,7 @@ import java.util.Map;
  */
 public class RSAUtils {
     public static final String ALGORITHM = "RSA";
+    public static final Integer MAX_KEY_SIZE = 16384;
 
     /**
      * 随机生成密钥对

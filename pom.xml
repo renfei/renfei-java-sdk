@@ -6,7 +6,7 @@
     <groupId>net.renfei</groupId>
     <artifactId>sdk</artifactId>
     <packaging>jar</packaging>
-    <version>0.0.31</version>
+    <version>1.0.0</version>
     <name>renfei-java-sdk</name>
     <url>http://www.renfei.net</url>
     <description>RenFei Software Development Kit for Java</description>
@@ -20,15 +20,15 @@
 
     <issueManagement>
         <system>GitHub Issues</system>
-        <url>https://github.com/renfei-net/renfei-java-sdk/issues</url>
+        <url>https://github.com/renfei/renfei-java-sdk/issues</url>
     </issueManagement>
 
     <inceptionYear>2020</inceptionYear>
 
     <scm>
-        <connection>scm:git:git://github.com/renfei-net/renfei-java-sdk.git</connection>
+        <connection>scm:git:git://github.com/renfei/renfei-java-sdk.git</connection>
         <developerConnection>scm:git:git@github.com:renfei-net/renfei-java-sdk.git</developerConnection>
-        <url>https://github.com/renfei-net/renfei-java-sdk</url>
+        <url>https://github.com/renfei/renfei-java-sdk</url>
     </scm>
 
     <developers>
