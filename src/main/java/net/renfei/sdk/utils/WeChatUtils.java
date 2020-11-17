@@ -92,6 +92,9 @@ public class WeChatUtils {
         InputStream inputStream = request.getInputStream();
         // 读取输入流
         SAXReader reader = new SAXReader();
+        reader.setFeature("http://apache.org/xml/features/disallow-doctype-decl", true);
+        reader.setFeature("http://xml.org/sax/features/external-general-entities", false);
+        reader.setFeature("http://xml.org/sax/features/external-parameter-entities", false);
         Document document = reader.read(inputStream);
         // 得到XML的根元素
         Element root = document.getRootElement();
