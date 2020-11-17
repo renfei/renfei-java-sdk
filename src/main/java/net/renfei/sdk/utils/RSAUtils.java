@@ -1,6 +1,7 @@
 package net.renfei.sdk.utils;
 
 import javax.crypto.Cipher;
+import java.nio.charset.StandardCharsets;
 import java.security.*;
 import java.security.spec.InvalidKeySpecException;
 import java.security.spec.PKCS8EncodedKeySpec;
@@ -16,6 +17,7 @@ import java.util.Map;
  */
 public class RSAUtils {
     public static final String ALGORITHM = "RSA";
+    public static final Integer MAX_KEY_SIZE = 16384;
 
     /**
      * 随机生成密钥对
@@ -55,7 +57,21 @@ public class RSAUtils {
     public static String encrypt(String str, String publicKey) throws Exception {
         Cipher cipher = Cipher.getInstance(ALGORITHM);
         cipher.init(Cipher.ENCRYPT_MODE, getPublicKey(publicKey));
-        return Base64.getEncoder().encodeToString(cipher.doFinal(str.getBytes("UTF-8")));
+        return Base64.getEncoder().encodeToString(cipher.doFinal(str.getBytes(StandardCharsets.UTF_8)));
+    }
+
+    /**
+     * RSA私钥加密
+     *
+     * @param str        加密字符串
+     * @param privateKey 私钥
+     * @return 密文
+     * @throws Exception 加密过程中的异常信息
+     */
+    public static String encryptByPrivateKey(String str, String privateKey) throws Exception {
+        Cipher cipher = Cipher.getInstance(ALGORITHM);
+        cipher.init(Cipher.ENCRYPT_MODE, getPrivateKey(privateKey));
+        return Base64.getEncoder().encodeToString(cipher.doFinal(str.getBytes(StandardCharsets.UTF_8)));
     }
 
     /**
@@ -69,7 +85,21 @@ public class RSAUtils {
     public static String decrypt(String str, String privateKey) throws Exception {
         Cipher cipher = Cipher.getInstance(ALGORITHM);
         cipher.init(Cipher.DECRYPT_MODE, getPrivateKey(privateKey));
-        return new String(cipher.doFinal(Base64.getDecoder().decode(str)), "UTF-8");
+        return new String(cipher.doFinal(Base64.getDecoder().decode(str)), StandardCharsets.UTF_8);
+    }
+
+    /**
+     * RSA公钥解密
+     *
+     * @param str       加密字符串
+     * @param publicKey 公钥
+     * @return 铭文
+     * @throws Exception 解密过程中的异常信息
+     */
+    public static String decryptByPublicKey(String str, String publicKey) throws Exception {
+        Cipher cipher = Cipher.getInstance(ALGORITHM);
+        cipher.init(Cipher.DECRYPT_MODE, getPublicKey(publicKey));
+        return new String(cipher.doFinal(Base64.getDecoder().decode(str)), StandardCharsets.UTF_8);
     }
 
     public static PublicKey getPublicKey(String base64PublicKey) {

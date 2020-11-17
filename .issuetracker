@@ -4,4 +4,4 @@
 
 [issuetracker "Sample GitHub Rule"]
   regex = "#(\\d+)"
-  url = "https://github.com/renfei-net/renfei-java-sdk/issues/$1"
+  url = "https://github.com/renfei/renfei-java-sdk/issues/$1"

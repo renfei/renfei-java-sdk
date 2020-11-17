@@ -50,6 +50,14 @@ public final class APIResult<T> {
         signature();
     }
 
+    public APIResult(T data) {
+        this.data = data;
+        this.stateCode = StateCode.OK;
+        this.code = StateCode.OK.getCode();
+        this.message = StateCode.OK.getDescribe();
+        signature();
+    }
+
     /**
      * 通过Builder构造
      *
@@ -160,5 +168,18 @@ public final class APIResult<T> {
         this.timestamp = (int) (System.currentTimeMillis() / 1000);
         this.nonce = StringUtils.getRandomString(16);
         this.signature = StringUtils.signature(this.timestamp.toString(), this.nonce);
+    }
+
+    @Override
+    public String toString() {
+        return "APIResult{" +
+                "stateCode=" + (stateCode == null ? "null" : stateCode.toString()) +
+                ", code=" + (code == null ? "null" : code) +
+                ", message='" + (message == null ? "null" : message) + '\'' +
+                ", timestamp=" + (timestamp == null ? "null" : timestamp) +
+                ", signature='" + (signature == null ? "null" : signature) + '\'' +
+                ", nonce='" + (nonce == null ? "null" : nonce) + '\'' +
+                ", data=" + (data == null ? "null" : data.toString()) +
+                '}';
     }
 }

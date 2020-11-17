@@ -2,7 +2,9 @@ package net.renfei.sdk.utils;
 
 import java.text.DecimalFormat;
 import java.text.ParseException;
-import java.text.SimpleDateFormat;
+import java.time.LocalDateTime;
+import java.time.ZoneOffset;
+import java.time.format.DateTimeFormatter;
 import java.util.Calendar;
 import java.util.Date;
 
@@ -499,9 +501,9 @@ public class DateUtils {
         } else if (differ <= 3600 * 24 * 30) {
             dateStr = (differ / (3600 * 24)) + "天前";
         } else {
-            Date date = new Date(createTime);
-            SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
-            dateStr = sdf.format(date);
+            LocalDateTime localDateTime = LocalDateTime.ofEpochSecond(createTime, 0, ZoneOffset.ofHours(8));
+            DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+            dateStr = localDateTime.format(dtf);
         }
         return dateStr;
     }

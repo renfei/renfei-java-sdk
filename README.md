@@ -6,13 +6,13 @@
 
 <p align="center">
 <a href="https://search.maven.org/search?q=g:%22net.renfei%22%20AND%20a:%22sdk%22" target="_blank"><img src="https://img.shields.io/maven-central/v/net.renfei/sdk.svg?label=Maven%20Central" alt="Latest Stable Version"/></a>
-<a href="https://travis-ci.org/renfei-net/renfei-java-sdk" target="_blank"><img src="https://travis-ci.org/renfei-net/renfei-java-sdk.svg?branch=master"/></a>
-<a href='https://coveralls.io/github/renfei-net/renfei-java-sdk?branch=master' target="_blank"><img src='https://coveralls.io/repos/github/renfei-net/renfei-java-sdk/badge.svg?branch=master' alt='Coverage Status' /></a>
-<a href="https://codebeat.co/projects/github-com-renfei-net-renfei-java-sdk-master" target="_blank"><img src="https://codebeat.co/badges/f0436930-23f8-4224-9f23-1a29a22d69d1" /></a>
+<a href="https://travis-ci.org/renfei/renfei-java-sdk" target="_blank"><img src="https://travis-ci.org/renfei/renfei-java-sdk.svg?branch=master"/></a>
+<a href='https://coveralls.io/github/renfei/renfei-java-sdk?branch=master' target="_blank"><img src='https://coveralls.io/repos/github/renfei/renfei-java-sdk/badge.svg?branch=master' alt='Coverage Status' /></a>
+<a href="https://codebeat.co/projects/github-com-renfei-renfei-java-sdk-master" target="_blank"><img src="https://codebeat.co/badges/f0436930-23f8-4224-9f23-1a29a22d69d1" /></a>
 <a href="https://ci.appveyor.com/project/NeilRen/renfei-java-sdk" target="_blank"><img src="https://ci.appveyor.com/api/projects/status/p4mfa2qpy1tbqxj9?svg=true"/></a>
 </p>
 
-收集开发中常用的代码工具。虽然程序员们都热衷于重复的"造轮子"，但这样是不对的，如果代码有问题你应该尝试去修复，而不是重新再造一个轮子出来。所以我收集开发中常用的工具代码，以方便在各个项目中重新利用它们。如果您在使用 RenFei SDK for Java 的过程中遇到任何问题，欢迎在当前 GitHub [提交 Issues](https://github.com/NeilRen/renfei-java-sdk/issues/new)。
+收集开发中常用的代码工具。虽然程序员们都热衷于重复的"造轮子"，但这样是不对的，如果代码有问题你应该尝试去修复，而不是重新再造一个轮子出来。所以我收集开发中常用的工具代码，以方便在各个项目中重新利用它们。如果您在使用 RenFei SDK for Java 的过程中遇到任何问题，欢迎在当前 GitHub [提交 Issues](https://github.com/renfei/renfei-java-sdk/issues/new)。
 
 ## 环境要求
 1.RenFei SDK for Java 需要1.8以上的JDK。
@@ -26,7 +26,7 @@
 <dependency>
     <groupId>net.renfei</groupId>
     <artifactId>sdk</artifactId>
-    <version>0.0.22</version>
+    <version>1.0.1</version>
 </dependency>
 ```
 ## 说明文档

@@ -11,10 +11,10 @@ github:
   is_project_page: true
   is_user_page: true
   repository_nwo: RenFei.Net
-  owner: NeilRen(任霏)
-  owner_url: https://github.com/NeilRen
-  zip_url: https://github.com/renfei-net/renfei-java-sdk/archive/master.zip
-  packages: https://github.com/renfei-net/renfei-java-sdk/packages/152444
-  repository_url: https://github.com/renfei-net/renfei-java-sdk
+  owner: RenFei(任霏)
+  owner_url: https://github.com/renfei
+  zip_url: https://github.com/renfei/renfei-java-sdk/archive/master.zip
+  packages: https://github.com/renfei/renfei-java-sdk/packages/152444
+  repository_url: https://github.com/renfei/renfei-java-sdk
 sdk:
-  version: 0.0.22
+  version: 1.0.1
