@@ -28,6 +28,11 @@ public final class ListData<T> {
      */
     private Integer showRows;
 
+    /**
+     * 扩展内容
+     */
+    private Object extra;
+
     public List<T> getData() {
         return data;
     }
@@ -58,5 +63,13 @@ public final class ListData<T> {
 
     public void setShowRows(Integer showRows) {
         this.showRows = showRows;
+    }
+
+    public Object getExtra() {
+        return extra;
+    }
+
+    public void setExtra(Object extra) {
+        this.extra = extra;
     }
 }
