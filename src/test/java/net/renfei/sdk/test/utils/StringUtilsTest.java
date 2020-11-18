@@ -62,6 +62,8 @@ public class StringUtilsTest extends Tests {
                 String ip = "8.8.8.8";
                 BigInteger bigInteger = StringUtils.stringToBigInt(ip);
                 Assertions.assertEquals(ip, StringUtils.bigIntToString(bigInteger));
+                Assertions.assertEquals("test_test_test", StringUtils.humpToLine("testTestTest"));
+                Assertions.assertEquals("testTestTest", StringUtils.lineToHump("test_test_test"));
             }
         };
         startTaskAllInOnce(100, taskTemp);

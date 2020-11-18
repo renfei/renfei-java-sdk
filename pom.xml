@@ -6,7 +6,7 @@
     <groupId>net.renfei</groupId>
     <artifactId>sdk</artifactId>
     <packaging>jar</packaging>
-    <version>1.0.3</version>
+    <version>1.0.4</version>
     <name>renfei-java-sdk</name>
     <url>http://www.renfei.net</url>
     <description>RenFei Software Development Kit for Java</description>
