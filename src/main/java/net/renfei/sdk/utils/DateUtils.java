@@ -362,6 +362,23 @@ public class DateUtils {
     }
 
     /**
+     * 获取与指定日期间隔给定天数的日期.
+     *
+     * @param specifiedDate 给定的日期
+     * @param num           间隔天数
+     * @return String 间隔指定天数之后的日期
+     * @since 1.0
+     */
+    public static String getSpecifiedDayAfter(Date specifiedDate, int num) {
+        Calendar c = Calendar.getInstance();
+        c.setTime(specifiedDate);
+        int day = c.get(Calendar.DATE);
+        c.set(Calendar.DATE, day + num);
+        String dayAfter = formatDate(c.getTime(), DateUtils.DATE_FORMAT);
+        return dayAfter;
+    }
+
+    /**
      * 计算两个日期之前间隔的小时数.
      *
      * @param date1 结束时间
