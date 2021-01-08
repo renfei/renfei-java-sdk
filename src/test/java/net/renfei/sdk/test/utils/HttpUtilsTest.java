@@ -1,7 +1,6 @@
 package net.renfei.sdk.test.utils;
 
 import lombok.SneakyThrows;
-import lombok.extern.slf4j.Slf4j;
 import net.renfei.sdk.entity.MyIP;
 import net.renfei.sdk.http.HttpRequest;
 import net.renfei.sdk.http.HttpResult;
@@ -13,7 +12,6 @@ import java.io.IOException;
 import java.io.OutputStream;
 import java.util.HashMap;
 
-@Slf4j
 public class HttpUtilsTest extends Tests {
 
     @Test
@@ -38,9 +36,9 @@ public class HttpUtilsTest extends Tests {
                 HttpResult resultTrace = HttpUtils.trace(request);
                 HttpResult resultOptions = HttpUtils.options(request);
                 OutputStream outputStream = HttpUtils.down(request);
-                log.info(result.getResponseText());
+                System.out.println(result.getResponseText());
                 MyIP myIP = result.parseObject(MyIP.class);
-                log.info(myIP.getClientIP());
+                System.out.println(myIP.getClientIP());
                 System.out.println(result.getCode());
                 System.out.println(result.getContentType());
                 System.out.println(result.getContentEncoding());

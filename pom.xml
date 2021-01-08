@@ -6,7 +6,7 @@
     <groupId>net.renfei</groupId>
     <artifactId>sdk</artifactId>
     <packaging>jar</packaging>
-    <version>1.0.5</version>
+    <version>1.0.6</version>
     <name>renfei-java-sdk</name>
     <url>http://www.renfei.net</url>
     <description>RenFei Software Development Kit for Java</description>
@@ -52,7 +52,6 @@
         <junit.version>5.7.0</junit.version>
         <httpclient.version>4.5.13</httpclient.version>
         <fastjson.version>1.2.75</fastjson.version>
-        <logback.version>1.2.3</logback.version>
         <lombok.version>1.18.16</lombok.version>
         <servlet-api.version>4.0.1</servlet-api.version>
         <apache-commons-lang3.version>3.11</apache-commons-lang3.version>
@@ -67,11 +66,6 @@
             <artifactId>junit-jupiter-api</artifactId>
             <version>${junit.version}</version>
             <scope>test</scope>
-        </dependency>
-        <dependency>
-            <groupId>ch.qos.logback</groupId>
-            <artifactId>logback-classic</artifactId>
-            <version>${logback.version}</version>
         </dependency>
         <dependency>
             <groupId>org.projectlombok</groupId>

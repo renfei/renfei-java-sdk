@@ -15,7 +15,6 @@ import java.util.List;
  * @author RenFei
  * @date : 2020-07-19 13:46
  */
-@Slf4j
 public class WeChatUtilsTests {
     private final WeChatUtils weChatUtils = new WeChatUtils();
 
@@ -26,7 +25,7 @@ public class WeChatUtilsTests {
         weChatMsg.setFromUserName("FromUserName");
         WeChatResponseTextMsg weChatResponseTextMsg = new WeChatResponseTextMsg(weChatMsg);
         weChatResponseTextMsg.setContent("TestContent");
-        log.info(weChatUtils.textMessageToXml(weChatResponseTextMsg));
+        System.out.println(weChatUtils.textMessageToXml(weChatResponseTextMsg));
         WeChatResponseNewsMsg weChatResponseNewsMsg = new WeChatResponseNewsMsg(weChatMsg);
         List<WeChatResponseNewsMsg.ArticlesItem> articlesItemList = new ArrayList<>();
         WeChatResponseNewsMsg.ArticlesItem articlesItem = new WeChatResponseNewsMsg.ArticlesItem();
@@ -34,26 +33,26 @@ public class WeChatUtilsTests {
         articlesItemList.add(articlesItem);
         weChatResponseNewsMsg.setArticleCount("1");
         weChatResponseNewsMsg.setArticles(articlesItemList);
-        log.info(weChatUtils.newsMessageToXml(weChatResponseNewsMsg));
+        System.out.println(weChatUtils.newsMessageToXml(weChatResponseNewsMsg));
         WeChatResponseImageMsg weChatResponseImageMsg = new WeChatResponseImageMsg(weChatMsg);
         WeChatResponseImageMsg.Image image = new WeChatResponseImageMsg.Image();
         image.setMediaId("Test");
         weChatResponseImageMsg.setImage(image);
-        log.info(weChatUtils.imageMessageToXml(weChatResponseImageMsg));
+        System.out.println(weChatUtils.imageMessageToXml(weChatResponseImageMsg));
         WeChatResponseMusicMsg weChatResponseMusicMsg = new WeChatResponseMusicMsg(weChatMsg);
         WeChatResponseMusicMsg.Music music = new WeChatResponseMusicMsg.Music();
         music.setTitle("Title");
         weChatResponseMusicMsg.setMusic(music);
-        log.info(weChatUtils.musicMessageToXml(weChatResponseMusicMsg));
+        System.out.println(weChatUtils.musicMessageToXml(weChatResponseMusicMsg));
         WeChatResponseVideoMsg weChatResponseVideoMsg = new WeChatResponseVideoMsg(weChatMsg);
         WeChatResponseVideoMsg.Video video = new WeChatResponseVideoMsg.Video();
         video.setTitle("Title");
         weChatResponseVideoMsg.setVideo(video);
-        log.info(weChatUtils.videoMessageToXml(weChatResponseVideoMsg));
+        System.out.println(weChatUtils.videoMessageToXml(weChatResponseVideoMsg));
         WeChatResponseVoiceMsg weChatResponseVoiceMsg = new WeChatResponseVoiceMsg(weChatMsg);
         WeChatResponseVoiceMsg.Voice voice = new WeChatResponseVoiceMsg.Voice();
         voice.setMediaId("Test");
         weChatResponseVoiceMsg.setVoice(voice);
-        log.info(weChatUtils.voiceMessageToXml(weChatResponseVoiceMsg));
+        System.out.println(weChatUtils.voiceMessageToXml(weChatResponseVoiceMsg));
     }
 }
