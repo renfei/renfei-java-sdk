@@ -17,6 +17,7 @@ public class PasswordUtils {
      * 加密方式
      */
     private static final String PBKDF2_ALGORITHM = "PBKDF2WithHmacSHA1";
+    private static final String PBKDF2_SHA_512_ALGORITHM = "PBKDF2WithHmacSHA512";
     /* 以下参数可以根据实际情况修改 */
     /**
      * 盐值长度
@@ -65,11 +66,11 @@ public class PasswordUtils {
         random.nextBytes(salt);
 
         // Hash the password
-        byte[] hash = pbkdf2(password, salt, PBKDF2_ITERATIONS, HASH_BYTE_SIZE);
+        byte[] hash = pbkdf2(password, salt, PBKDF2_ITERATIONS, PBKDF2_SHA_512_ALGORITHM, HASH_BYTE_SIZE);
         int hashSize = hash.length;
 
         // format: algorithm:iterations:hashSize:salt:hash
-        String parts = "sha1:" +
+        String parts = "sha256:" +
                 PBKDF2_ITERATIONS +
                 ":" + hashSize +
                 ":" +
@@ -109,13 +110,6 @@ public class PasswordUtils {
         if (params.length != HASH_SECTIONS) {
             throw new InvalidHashException(
                     "Fields are missing from the password hash."
-            );
-        }
-
-        // Currently, Java only supports SHA1.
-        if (!params[HASH_ALGORITHM_INDEX].equals("sha1")) {
-            throw new CannotPerformOperationException(
-                    "Unsupported hash type."
             );
         }
 
@@ -173,9 +167,16 @@ public class PasswordUtils {
             );
         }
 
-        // Compute the hash of the provided password, using the same salt,
-        // iteration count, and hash length
-        byte[] testHash = pbkdf2(password, salt, iterations, hash.length);
+        byte[] testHash = null;
+        if ("sha1".equals(params[HASH_ALGORITHM_INDEX])) {
+            testHash = pbkdf2(password, salt, iterations, PBKDF2_ALGORITHM, hash.length);
+        } else if ("sha256".equals(params[HASH_ALGORITHM_INDEX])) {
+            testHash = pbkdf2(password, salt, iterations, PBKDF2_SHA_512_ALGORITHM, hash.length);
+        } else {
+            throw new CannotPerformOperationException(
+                    "Unsupported hash type."
+            );
+        }
         // Compare the hashes in constant time. The password is correct if
         // both hashes match.
         return slowEquals(hash, testHash);
@@ -189,11 +190,11 @@ public class PasswordUtils {
         return diff == 0;
     }
 
-    private static byte[] pbkdf2(char[] password, byte[] salt, int iterations, int bytes)
+    private static byte[] pbkdf2(char[] password, byte[] salt, int iterations, String algorithm, int bytes)
             throws CannotPerformOperationException {
         try {
             PBEKeySpec spec = new PBEKeySpec(password, salt, iterations, bytes * 8);
-            SecretKeyFactory skf = SecretKeyFactory.getInstance(PBKDF2_ALGORITHM);
+            SecretKeyFactory skf = SecretKeyFactory.getInstance(algorithm);
             return skf.generateSecret(spec).getEncoded();
         } catch (NoSuchAlgorithmException ex) {
             throw new CannotPerformOperationException(
