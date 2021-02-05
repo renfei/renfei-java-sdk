@@ -33,7 +33,11 @@ public enum HttpEntityType {
     /**
      * Url编码类型
      */
-    ENTITY_FORM(6, "UrlEncodedFormEntity");
+    ENTITY_FORM(6, "UrlEncodedFormEntity"),
+    /**
+     * 字符串类型
+     */
+    ENTITY_JSON(7, "JsonEntity");
 
     private int code;
     private String name;
