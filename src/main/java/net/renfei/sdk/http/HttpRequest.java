@@ -6,6 +6,7 @@ import org.apache.http.NameValuePair;
 import org.apache.http.client.HttpClient;
 import org.apache.http.client.entity.UrlEncodedFormEntity;
 import org.apache.http.entity.ByteArrayEntity;
+import org.apache.http.entity.ContentType;
 import org.apache.http.entity.StringEntity;
 import org.apache.http.message.BasicHeader;
 import org.apache.http.message.BasicNameValuePair;
@@ -53,6 +54,7 @@ public class HttpRequest {
      * 请求参数
      */
     private Map<String, Object> paramMap = new LinkedHashMap<>();
+    private Map<String, Object> pathParam = new LinkedHashMap<>();
 
     /**
      * 请求 header
@@ -182,6 +184,15 @@ public class HttpRequest {
         return this;
     }
 
+    public HttpRequest pathParam(Map<String, Object> pathParam) {
+        if (this.pathParam == null || pathParam == null) {
+            this.pathParam = pathParam;
+        } else {
+            this.pathParam.putAll(pathParam);
+        }
+        return this;
+    }
+
     /**
      * 设置单个参数
      *
@@ -266,6 +277,10 @@ public class HttpRequest {
         return paramMap;
     }
 
+    public Map<String, Object> getPathParam() {
+        return pathParam;
+    }
+
     public Map<String, Header> getHeaderMap() {
         return headerMap;
     }
@@ -320,6 +335,9 @@ public class HttpRequest {
                 }
 
                 entity = new UrlEncodedFormEntity(pairList, Charset.forName(getRequestCharset()));
+                break;
+            case ENTITY_JSON:
+                entity = new StringEntity(this.getJsonParam(), ContentType.APPLICATION_JSON);
                 break;
             default:
                 break;

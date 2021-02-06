@@ -12,6 +12,7 @@ import org.apache.http.util.EntityUtils;
 
 import java.io.IOException;
 import java.io.OutputStream;
+import java.util.Map;
 
 /**
  * Http请求工具
@@ -198,8 +199,20 @@ public class HttpUtils {
         //设置httpClient
         setHttpClinet(httpRequest);
 
+        StringBuilder sbUrl = new StringBuilder(HttpRequest.getUrl());
+        if (httpRequest.getPathParam() != null && httpRequest.getPathParam().size() > 0) {
+            sbUrl.append("?");
+            for (Map.Entry<String, Object> entry : httpRequest.getPathParam().entrySet()) {
+                sbUrl.append(entry.getKey()).append("=").append(entry.getValue().toString()).append("&");
+            }
+        }
+        String url = sbUrl.toString();
+        if (url.endsWith("&")) {
+            url = url.substring(0, url.length() - 1);
+        }
+
         //创建请求对象
-        HttpRequestBase request = getRequest(HttpRequest.getUrl(), httpRequest.getRequestMethod());
+        HttpRequestBase request = getRequest(url, httpRequest.getRequestMethod());
 
         //设置header信息
         request.setHeaders(httpRequest.getHeaders());
