@@ -53,6 +53,8 @@ layout: default
     - [AESUtil](docs/utils/AESUtil.html)
     - [BeanUtils](docs/utils/BeanUtils.html)
     - [Builder](docs/utils/Builder.html)
+    - [ChinaIdCardUtils](docs/utils/ChinaIdCardUtils.html)
+    - [CollectionUtils](docs/utils/CollectionUtils.html)
     - [DateUtil](docs/utils/DateUtil.html)
     - [EncryptionUtils](docs/utils/EncryptionUtils.html)
     - [GoogleAuthenticator](docs/utils/GoogleAuthenticator.html)

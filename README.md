@@ -26,9 +26,15 @@
 <dependency>
     <groupId>net.renfei</groupId>
     <artifactId>sdk</artifactId>
-    <version>1.0.9</version>
+    <version>1.0.10</version>
 </dependency>
 ```
 ## 说明文档
 详细的说明文档请访问<a href="https://sdk.renfei.net" target="_blank">sdk.renfei.net</a>。  
 更多技术类文章和macOS破解软件分享请访问<a href="https://www.renfei.net" target="_blank">任霏博客</a>。
+
+## 代码仓库
+- [Main] Github:[https://github.com/renfei/renfei-java-sdk](https://github.com/renfei/renfei-java-sdk)
+- [Mirror] Gitlab:[https://gitlab.com/renfei/renfei-java-sdk](https://gitlab.com/renfei/renfei-java-sdk)
+- [Mirror] Gitee:[https://gitee.com/rnf/renfei-java-sdk](https://gitee.com/rnf/renfei-java-sdk)
+- [Mirror] Coding:[https://githubi.coding.net/public/renfei/renfei-java-sdk/git/files](https://githubi.coding.net/public/renfei/renfei-java-sdk/git/files)
