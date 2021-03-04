@@ -24,6 +24,11 @@ public final class ListData<T> {
     private Integer currentPage;
 
     /**
+     * 总页数
+     */
+    private Integer totalPages;
+
+    /**
      * 显示行数
      */
     private Integer showRows;
@@ -33,30 +38,30 @@ public final class ListData<T> {
      */
     private Object extra;
 
-    ListData() {
+    public ListData() {
     }
 
-    ListData(List<T> data) {
+    public ListData(List<T> data) {
+        this(data, null, null, null, null);
+    }
+
+    public ListData(Long total, Integer currentPage, Integer showRows) {
+        this(total, currentPage, showRows, null);
+    }
+
+    public ListData(Long total, Integer currentPage, Integer showRows, Integer totalPages) {
+        this(null, total, currentPage, showRows, totalPages);
+    }
+
+    public ListData(List<T> data, Long total, Integer currentPage, Integer showRows, Integer totalPages) {
+        this(data, total, currentPage, showRows, totalPages, null);
+    }
+
+    public ListData(List<T> data, Long total, Integer currentPage, Integer showRows, Integer totalPages, Object extra) {
         this.data = data;
-    }
-
-    ListData(long total, int currentPage, int showRows) {
         this.currentPage = currentPage;
         this.showRows = showRows;
-        this.total = total;
-    }
-
-    ListData(List<T> data, long total, int currentPage, int showRows) {
-        this.data = data;
-        this.currentPage = currentPage;
-        this.showRows = showRows;
-        this.total = total;
-    }
-
-    ListData(List<T> data, long total, int currentPage, int showRows, Object extra) {
-        this.data = data;
-        this.currentPage = currentPage;
-        this.showRows = showRows;
+        this.totalPages = totalPages;
         this.total = total;
         this.extra = extra;
     }
@@ -75,6 +80,14 @@ public final class ListData<T> {
 
     public void setTotal(Long total) {
         this.total = total;
+    }
+
+    public Integer getTotalPages() {
+        return totalPages;
+    }
+
+    public void setTotalPages(Integer totalPages) {
+        this.totalPages = totalPages;
     }
 
     public Integer getCurrentPage() {
