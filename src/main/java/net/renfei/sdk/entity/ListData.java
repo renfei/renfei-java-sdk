@@ -33,6 +33,34 @@ public final class ListData<T> {
      */
     private Object extra;
 
+    ListData() {
+    }
+
+    ListData(List<T> data) {
+        this.data = data;
+    }
+
+    ListData(long total, int currentPage, int showRows) {
+        this.currentPage = currentPage;
+        this.showRows = showRows;
+        this.total = total;
+    }
+
+    ListData(List<T> data, long total, int currentPage, int showRows) {
+        this.data = data;
+        this.currentPage = currentPage;
+        this.showRows = showRows;
+        this.total = total;
+    }
+
+    ListData(List<T> data, long total, int currentPage, int showRows, Object extra) {
+        this.data = data;
+        this.currentPage = currentPage;
+        this.showRows = showRows;
+        this.total = total;
+        this.extra = extra;
+    }
+
     public List<T> getData() {
         return data;
     }
