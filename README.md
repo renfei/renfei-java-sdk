@@ -38,3 +38,7 @@
 - [Mirror] Gitlab:[https://gitlab.com/renfei/renfei-java-sdk](https://gitlab.com/renfei/renfei-java-sdk)
 - [Mirror] Gitee:[https://gitee.com/rnf/renfei-java-sdk](https://gitee.com/rnf/renfei-java-sdk)
 - [Mirror] Coding:[https://githubi.coding.net/public/renfei/renfei-java-sdk/git/files](https://githubi.coding.net/public/renfei/renfei-java-sdk/git/files)
+
+## 求鼓励
+
+如果这个项目帮助到了你，是否能给我点个免费的星星 (Star) 给个鼓励呢。高星项目我将持续关注努力更新的。
