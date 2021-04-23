@@ -13,6 +13,7 @@ import java.text.DateFormat;
 import java.text.DecimalFormat;
 import java.text.SimpleDateFormat;
 import java.util.*;
+import java.util.concurrent.ConcurrentHashMap;
 
 /**
  * <p>Title: ExcelUtils</p>
@@ -228,11 +229,11 @@ public class ExcelUtils {
         }
         HSSFWorkbook workbook = new HSSFWorkbook(fileInputStream);
         HSSFSheet s = workbook.getSheetAt(0);
-        List<Map<String, String>> datas = new ArrayList<>();
-        List<String> key = new ArrayList<>();
+        List<Map<String, String>> datas = new Vector<>();
+        List<String> key = new Vector<>();
         //获取总行数
         for (int j = 0; j < s.getLastRowNum() + 1; j++) {
-            Map<String, String> data = new HashMap<>();
+            Map<String, String> data = new ConcurrentHashMap<>();
             // 取出第i行 getRow(index) 获取第(j)行
             Row row = s.getRow(j);
             if (j == 0) {
@@ -268,10 +269,10 @@ public class ExcelUtils {
         }
         HSSFWorkbook workbook = new HSSFWorkbook(fileInputStream);
         HSSFSheet s = workbook.getSheetAt(0);
-        List<List<String>> datas = new ArrayList<>();
+        List<List<String>> datas = new Vector<>();
         //获取总行数
         for (int j = 0; j < s.getLastRowNum() + 1; j++) {
-            List<String> data = new ArrayList<>();
+            List<String> data = new Vector<>();
             // 取出第i行 getRow(index) 获取第(j)行
             Row row = s.getRow(j);
             for (int k = 0; k < row.getLastCellNum(); k++) {
@@ -297,11 +298,11 @@ public class ExcelUtils {
         }
         XSSFWorkbook workbook = new XSSFWorkbook(fileInputStream);
         XSSFSheet s = workbook.getSheetAt(0);
-        List<Map<String, String>> datas = new ArrayList<>();
-        List<String> key = new ArrayList<>();
+        List<Map<String, String>> datas = new Vector<>();
+        List<String> key = new Vector<>();
         //获取总行数
         for (int j = 0; j < s.getLastRowNum() + 1; j++) {
-            Map<String, String> data = new HashMap<>();
+            Map<String, String> data = new ConcurrentHashMap<>();
             // 取出第i行 getRow(index) 获取第(j)行
             Row row = s.getRow(j);
             if (j == 0) {
@@ -337,10 +338,10 @@ public class ExcelUtils {
         }
         XSSFWorkbook workbook = new XSSFWorkbook(fileInputStream);
         XSSFSheet s = workbook.getSheetAt(0);
-        List<List<String>> datas = new ArrayList<>();
+        List<List<String>> datas = new Vector<>();
         //获取总行数
         for (int j = 0; j < s.getLastRowNum() + 1; j++) {
-            List<String> data = new ArrayList<>();
+            List<String> data = new Vector<>();
             // 取出第i行 getRow(index) 获取第(j)行
             Row row = s.getRow(j);
             for (int k = 0; k < row.getLastCellNum(); k++) {

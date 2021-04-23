@@ -13,15 +13,12 @@ import org.junit.jupiter.api.Test;
  */
 public class NumberUtilsTest extends Tests {
     @Test
-    public void numberUtilsTest() throws InterruptedException {
-        Runnable taskTemp = () -> {
-            Assertions.assertEquals(NumberUtils.parseInt("123", 456), 123);
-            Assertions.assertEquals(NumberUtils.parseInt("test", 456), 456);
-            Assertions.assertEquals(NumberUtils.parseFloat("123.123", 456.456f), 123.123f);
-            Assertions.assertEquals(NumberUtils.parseFloat("test", 456.456f), 456.456f);
-            Assertions.assertEquals(NumberUtils.parseDouble("3.141592654", 1.23456f), 3.141592654d);
-            Assertions.assertEquals(NumberUtils.parseDouble("test", 1.23456d), 1.23456d);
-        };
-        startTaskAllInOnce(100, taskTemp);
+    public void numberUtilsTest() {
+        Assertions.assertEquals(NumberUtils.parseInt("123", 456), 123);
+        Assertions.assertEquals(NumberUtils.parseInt("test", 456), 456);
+        Assertions.assertEquals(NumberUtils.parseFloat("123.123", 456.456f), 123.123f);
+        Assertions.assertEquals(NumberUtils.parseFloat("test", 456.456f), 456.456f);
+        Assertions.assertEquals(NumberUtils.parseDouble("3.141592654", 1.23456f), 3.141592654d);
+        Assertions.assertEquals(NumberUtils.parseDouble("test", 1.23456d), 1.23456d);
     }
 }

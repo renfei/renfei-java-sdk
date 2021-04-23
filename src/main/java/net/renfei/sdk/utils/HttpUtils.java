@@ -199,7 +199,7 @@ public class HttpUtils {
         //设置httpClient
         setHttpClinet(httpRequest);
 
-        StringBuilder sbUrl = new StringBuilder(HttpRequest.getUrl());
+        StringBuffer sbUrl = new StringBuffer(HttpRequest.getUrl());
         if (httpRequest.getPathParam() != null && httpRequest.getPathParam().size() > 0) {
             sbUrl.append("?");
             for (Map.Entry<String, Object> entry : httpRequest.getPathParam().entrySet()) {

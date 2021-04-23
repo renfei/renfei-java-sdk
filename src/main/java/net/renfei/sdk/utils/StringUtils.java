@@ -130,7 +130,7 @@ public class StringUtils {
             return null;
         }
         Arrays.sort(arr);
-        StringBuilder sb = new StringBuilder();
+        StringBuffer sb = new StringBuffer();
         //将参数拼接成一个字符串进行sha1加密
         for (String param : arr) {
             sb.append(param);
@@ -177,7 +177,7 @@ public class StringUtils {
      */
     public static String getRandomNumber(int length) {
         Random r = new Random();
-        StringBuilder rs = new StringBuilder();
+        StringBuffer rs = new StringBuffer();
         for (int i = 0; i < length; i++) {
             rs.append(r.nextInt(10));
         }

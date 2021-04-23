@@ -9,6 +9,7 @@ import java.security.spec.X509EncodedKeySpec;
 import java.util.Base64;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
 
 /**
  * RSA非对称加密
@@ -25,7 +26,7 @@ public class RSAUtils {
      * @throws NoSuchAlgorithmException
      */
     public static Map<Integer, String> genKeyPair(int keySize) {
-        Map<Integer, String> keyMap = new HashMap<>();
+        Map<Integer, String> keyMap = new ConcurrentHashMap<>();
         PrivateKey privateKey;
         PublicKey publicKey;
         try {

@@ -101,7 +101,7 @@ public class HttpResult {
 
     @Override
     public String toString() {
-        final StringBuilder sb = new StringBuilder("HttpRequestResult{");
+        final StringBuffer sb = new StringBuffer("HttpRequestResult{");
         sb.append("code=").append(code);
         sb.append(", responseText='").append(responseText).append('\'');
         sb.append(", contentType='").append(contentType).append('\'');

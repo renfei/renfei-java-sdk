@@ -4,8 +4,8 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
-import java.util.HashMap;
 import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
 
 /**
  * <p>Title: ChinaIdCardUtils</p>
@@ -48,15 +48,15 @@ public class ChinaIdCardUtils {
      * 最低年限
      */
     public static final int MIN = 1930;
-    public static Map<String, String> CITY_CODES = new HashMap<String, String>();
+    public static Map<String, String> CITY_CODES = new ConcurrentHashMap<String, String>();
     /**
      * 台湾身份首字母对应数字
      */
-    public static Map<String, Integer> TW_FIRST_CODE = new HashMap<String, Integer>();
+    public static Map<String, Integer> TW_FIRST_CODE = new ConcurrentHashMap<String, Integer>();
     /**
      * 香港身份首字母对应数字
      */
-    public static Map<String, Integer> HK_FIRST_CODE = new HashMap<String, Integer>();
+    public static Map<String, Integer> HK_FIRST_CODE = new ConcurrentHashMap<String, Integer>();
 
     static {
         CITY_CODES.put("11", "北京");

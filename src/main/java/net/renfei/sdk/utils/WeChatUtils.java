@@ -17,6 +17,7 @@ import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
 
 /**
  * <p>Title: WeChatUtils</p>
@@ -67,7 +68,7 @@ public class WeChatUtils {
         String[] str = {timestamp, nonce, weChatToken};
         //将token、timestamp、nonce三个参数进行字典序排序
         Arrays.sort(str);
-        StringBuilder sb = new StringBuilder();
+        StringBuffer sb = new StringBuffer();
         //将三个参数字符串拼接成一个字符串进行sha1加密
         for (String param : str) {
             sb.append(param);
@@ -87,7 +88,7 @@ public class WeChatUtils {
      */
     public Map<String, String> parseXml(HttpServletRequest request) throws Exception {
         // 将解析结果存储在HashMap中
-        Map<String, String> map = new HashMap<String, String>();
+        Map<String, String> map = new ConcurrentHashMap<String, String>();
         // 从request中得到输入流
         InputStream inputStream = request.getInputStream();
         // 读取输入流

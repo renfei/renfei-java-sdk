@@ -15,6 +15,7 @@ import org.apache.http.protocol.HttpContext;
 import java.io.OutputStream;
 import java.nio.charset.Charset;
 import java.util.*;
+import java.util.concurrent.ConcurrentHashMap;
 
 /**
  * Http请求对象
@@ -211,7 +212,7 @@ public class HttpRequest {
      */
     public HttpRequest json(String jsonParam) {
         this.jsonParam = jsonParam;
-        paramMap = new HashMap<>();
+        paramMap = new ConcurrentHashMap<>();
         return this;
     }
 
@@ -221,7 +222,7 @@ public class HttpRequest {
      */
     public HttpRequest bytes(byte[] bytes) {
         this.bytes = bytes;
-        paramMap = new HashMap<>();
+        paramMap = new ConcurrentHashMap<>();
         return this;
     }
 
@@ -327,7 +328,7 @@ public class HttpRequest {
                 entity = new ByteArrayEntity(getBytes());
                 break;
             case ENTITY_FORM:
-                List<NameValuePair> pairList = new ArrayList<>(paramMap.size());
+                List<NameValuePair> pairList = new Vector<>(paramMap.size());
                 for (Map.Entry<String, Object> entry : paramMap.entrySet()) {
                     NameValuePair pair = new BasicNameValuePair(entry.getKey(), entry
                             .getValue().toString());
@@ -348,7 +349,7 @@ public class HttpRequest {
 
     @Override
     public String toString() {
-        final StringBuilder sb = new StringBuilder("HttpRequest{");
+        final StringBuffer sb = new StringBuffer("HttpRequest{");
         sb.append("httpClient=").append(httpClient);
         sb.append(", requestMethod=").append(requestMethod);
         sb.append(", paramMap=").append(paramMap);

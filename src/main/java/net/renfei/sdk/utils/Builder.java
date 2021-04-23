@@ -2,6 +2,7 @@ package net.renfei.sdk.utils;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Vector;
 import java.util.function.Consumer;
 import java.util.function.Supplier;
 
@@ -13,7 +14,7 @@ import java.util.function.Supplier;
  */
 public class Builder<T> {
     private final Supplier<T> instantiator;
-    private List<Consumer<T>> modifiers = new ArrayList<>();
+    private List<Consumer<T>> modifiers = new Vector<>();
 
     public Builder(Supplier<T> instantiator) {
         this.instantiator = instantiator;
