@@ -1,5 +1,7 @@
 package net.renfei.sdk.utils;
 
+import org.apache.commons.lang3.time.DateFormatUtils;
+
 import java.text.DecimalFormat;
 import java.text.ParseException;
 import java.time.LocalDateTime;
@@ -7,8 +9,6 @@ import java.time.ZoneOffset;
 import java.time.format.DateTimeFormatter;
 import java.util.Calendar;
 import java.util.Date;
-
-import org.apache.commons.lang3.time.DateFormatUtils;
 
 /**
  * 时间类型工具
@@ -530,7 +530,7 @@ public class DateUtils {
      *
      * @return
      */
-    public static int getUnixTimestamp() {
-        return (int) (System.currentTimeMillis() / 1000);
+    public static long getUnixTimestamp() {
+        return System.currentTimeMillis() / 1000;
     }
 }
