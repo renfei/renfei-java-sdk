@@ -100,7 +100,7 @@ public class SM2Util extends AbstractSM {
      * @return RSA P10 证书请求 Base64 字符串
      * @throws InvalidAlgorithmParameterException 当采用的 ECC 算法不适用于该密钥对生成器时
      */
-    public KeyPair generatekeyPair() {
+    public KeyPair generateKeyPair() {
         return generator.generateKeyPair();
     }
 
@@ -255,7 +255,7 @@ public class SM2Util extends AbstractSM {
     }
 
     /**
-     * 加载私钥郑证书文件
+     * 加载私钥证书文件
      *
      * @param filename 文件路径
      * @param password 证书密码

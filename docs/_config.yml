@@ -17,4 +17,4 @@ github:
   packages: https://github.com/renfei/renfei-java-sdk/packages/152444
   repository_url: https://github.com/renfei/renfei-java-sdk
 sdk:
-  version: 1.1.2
+  version: 2.0.0-SNAPSHOT

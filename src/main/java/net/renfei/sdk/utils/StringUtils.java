@@ -15,6 +15,8 @@
  */
 package net.renfei.sdk.utils;
 
+import net.renfei.sdk.security.SHAUtil;
+
 import java.io.UnsupportedEncodingException;
 import java.math.BigInteger;
 import java.net.InetAddress;
@@ -24,11 +26,13 @@ import java.net.UnknownHostException;
 import java.util.Arrays;
 import java.util.Base64;
 import java.util.Random;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 /**
  * @author renfei
  */
-public class StringUtil {
+public class StringUtils {
     private static final String EMAIL_REGEX = "^([a-zA-Z0-9_\\-\\.]+)@([a-zA-Z0-9_\\-\\.]+)\\.([a-zA-Z]{2,5})$";
     private static final String CHINA_PHONE_ALL = "^(?:\\+?86)?1(?:3\\d{3}|5[^4\\D]\\d{2}|8\\d{3}|7(?:[35-8]\\d{2}|4(?:0\\d|1[0-2]|9\\d))|9[0135-9]\\d{2}|66\\d{2})\\d{6}$";
     private static final String CHINA_PHONE_CHINA_MOBILE = "^(?:\\+?86)?1(?:3(?:4[^9\\D]|[5-9]\\d)|5[^3-6\\D]\\d|8[23478]\\d|[79]8\\d)\\d{7}$";
@@ -36,6 +40,8 @@ public class StringUtil {
     private static final String CHINA_PHONE_CHINA_TELECOM = "^(?:\\+?86)?1(?:3(?:3\\d|49)\\d|53\\d{2}|8[019]\\d{2}|7(?:[37]\\d{2}|40[0-5])|9[139]\\d{2})\\d{6}$";
     private static final String CHINA_PHONE_MVNO_ALL = "^(?:\\+?86)?1(?:7[01]|6[257])\\d{8}$";
     private static final String DOMAIN_REGEX = "^(?:[a-z0-9](?:[a-z0-9-]{0,61}[a-z0-9])?\\.)+[a-z0-9][a-z0-9-]{0,61}[a-z0-9]$";
+    private static final Pattern LINE_PATTERN = Pattern.compile("_(\\w)");
+    private static final Pattern HUMP_PATTERN = Pattern.compile("[A-Z]");
 
     /**
      * 判断是否是域名格式
@@ -144,7 +150,7 @@ public class StringUtil {
         for (String param : arr) {
             sb.append(param);
         }
-        return MessageDigestUtil.sha1(sb.toString());
+        return SHAUtil.sha1(sb.toString());
     }
 
     /**
@@ -358,5 +364,38 @@ public class StringUtil {
                 position3));
         ret[4] = (byte) Integer.parseInt(ipv4.substring(position3 + 1));
         return ret;
+    }
+
+    /**
+     * 下划线转驼峰
+     *
+     * @param str
+     * @return
+     */
+    public static String lineToHump(String str) {
+        str = str.toLowerCase();
+        Matcher matcher = LINE_PATTERN.matcher(str);
+        StringBuffer sb = new StringBuffer();
+        while (matcher.find()) {
+            matcher.appendReplacement(sb, matcher.group(1).toUpperCase());
+        }
+        matcher.appendTail(sb);
+        return sb.toString();
+    }
+
+    /**
+     * 驼峰转下划线
+     *
+     * @param str
+     * @return
+     */
+    public static String humpToLine(String str) {
+        Matcher matcher = HUMP_PATTERN.matcher(str);
+        StringBuffer sb = new StringBuffer();
+        while (matcher.find()) {
+            matcher.appendReplacement(sb, "_" + matcher.group(0).toLowerCase());
+        }
+        matcher.appendTail(sb);
+        return sb.toString();
     }
 }

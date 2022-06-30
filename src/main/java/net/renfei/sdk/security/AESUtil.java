@@ -25,7 +25,7 @@ import java.util.Base64;
  *
  * @author renfei
  */
-public class AESCipherUtil {
+public class AESUtil {
     /**
      * 算法
      */

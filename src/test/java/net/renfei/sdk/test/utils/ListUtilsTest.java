@@ -13,29 +13,28 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package net.renfei.sdk.test.security.gm.sm;
+package net.renfei.sdk.test.utils;
 
-import net.renfei.sdk.security.gm.sm.SM3Util;
 import net.renfei.sdk.test.Tests;
-import net.renfei.sdk.utils.StringUtils;
+import net.renfei.sdk.utils.ListUtils;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.assertTrue;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * @author renfei
  */
-public class SM3UtilTest extends Tests {
-    static int randomData = 128;
-    static byte[] message = StringUtils.getRandomString(randomData).getBytes();
-
+public class ListUtilsTest extends Tests {
     @Test
-    public void hashAndVerify() {
-        byte[] hashVal = SM3Util.hash(message);
-        assertTrue(SM3Util.verify(message, hashVal));
-
-        String messageString = StringUtils.getRandomString(randomData);
-        String hash = SM3Util.hash(messageString);
-        assertTrue(SM3Util.verify(messageString, hash));
+    public void testListGetOne() {
+        System.out.println("==== " + this.getClass().getName() + " ====");
+        List<String> stringList = new ArrayList<>();
+        Assertions.assertNull(ListUtils.getOne(stringList));
+        stringList.add("test1");
+        stringList.add("test2");
+        stringList.add("test3");
+        Assertions.assertEquals(ListUtils.getOne(stringList), "test1");
     }
 }

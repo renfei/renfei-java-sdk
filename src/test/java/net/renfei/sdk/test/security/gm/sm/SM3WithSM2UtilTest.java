@@ -18,8 +18,7 @@ package net.renfei.sdk.test.security.gm.sm;
 import net.renfei.sdk.security.gm.sm.SM2Util;
 import net.renfei.sdk.security.gm.sm.SM3WithSM2Util;
 import net.renfei.sdk.test.Tests;
-import net.renfei.sdk.utils.StringUtil;
-import org.bouncycastle.crypto.digests.SM3Digest;
+import net.renfei.sdk.utils.StringUtils;
 import org.junit.jupiter.api.Test;
 
 import java.security.KeyPair;
@@ -36,7 +35,7 @@ import static org.junit.jupiter.api.Assertions.*;
 public class SM3WithSM2UtilTest extends Tests {
 
     static int randomData = 128;
-    static byte[] message = StringUtil.getRandomString(randomData).getBytes();
+    static byte[] message = StringUtils.getRandomString(randomData).getBytes();
     PublicKey pubKey;
     PrivateKey privKey;
     KeyPair keyPair;
@@ -49,7 +48,7 @@ public class SM3WithSM2UtilTest extends Tests {
         Queue<Exception> ex = new ConcurrentLinkedQueue<>();
 
         SM2Util sm2instance = new SM2Util();
-        this.keyPair = sm2instance.generatekeyPair();
+        this.keyPair = sm2instance.generateKeyPair();
         this.pubKey = keyPair.getPublic();
         this.privKey = keyPair.getPrivate();
 
@@ -85,10 +84,10 @@ public class SM3WithSM2UtilTest extends Tests {
         Queue<Exception> ex = new ConcurrentLinkedQueue<>();
 
         SM2Util sm2instance = new SM2Util();
-        this.keyPair = sm2instance.generatekeyPair();
+        this.keyPair = sm2instance.generateKeyPair();
         this.pubKey = keyPair.getPublic();
         this.privKey = keyPair.getPrivate();
-        String messageString = StringUtil.getRandomString(16);
+        String messageString = StringUtils.getRandomString(16);
 
         SM3WithSM2Util instance = new SM3WithSM2Util();
         String signresult = instance.digestAndSign(this.privKey, messageString);

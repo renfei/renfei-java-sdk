@@ -19,7 +19,7 @@ import net.renfei.sdk.security.gm.sm.SM4Cipher;
 import net.renfei.sdk.security.gm.sm.SM4ModeAndPaddingEnum;
 import net.renfei.sdk.security.gm.sm.SM4Util;
 import net.renfei.sdk.test.Tests;
-import net.renfei.sdk.utils.StringUtil;
+import net.renfei.sdk.utils.StringUtils;
 import org.junit.jupiter.api.Test;
 
 import javax.crypto.Cipher;
@@ -41,7 +41,7 @@ public class SM4UtilTest extends Tests {
     private static byte[] iv = null;
     private static SM4ModeAndPaddingEnum type;
     static int randomData = 128;
-    static String message = StringUtil.getRandomString(randomData);
+    static String message = StringUtils.getRandomString(randomData);
     static String exceptionHappened = "Exception happened";
 
     public SM4UtilTest() throws NoSuchProviderException, NoSuchAlgorithmException {

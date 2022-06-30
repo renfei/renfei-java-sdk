@@ -13,29 +13,23 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package net.renfei.sdk.test.security.gm.sm;
+package net.renfei.sdk.test.security;
 
-import net.renfei.sdk.security.gm.sm.SM3Util;
+import net.renfei.sdk.security.SHAUtil;
 import net.renfei.sdk.test.Tests;
-import net.renfei.sdk.utils.StringUtils;
 import org.junit.jupiter.api.Test;
-
-import static org.junit.jupiter.api.Assertions.assertTrue;
 
 /**
  * @author renfei
  */
-public class SM3UtilTest extends Tests {
-    static int randomData = 128;
-    static byte[] message = StringUtils.getRandomString(randomData).getBytes();
-
+public class SHAUtilTest extends Tests {
     @Test
-    public void hashAndVerify() {
-        byte[] hashVal = SM3Util.hash(message);
-        assertTrue(SM3Util.verify(message, hashVal));
-
-        String messageString = StringUtils.getRandomString(randomData);
-        String hash = SM3Util.hash(messageString);
-        assertTrue(SM3Util.verify(messageString, hash));
+    public void test() {
+        String msg = "dsdgsaf";
+        System.out.println(SHAUtil.md516(msg));
+        System.out.println(SHAUtil.md5(msg));
+        System.out.println(SHAUtil.sha1(msg));
+        System.out.println(SHAUtil.sha256(msg));
+        System.out.println(SHAUtil.sha512(msg));
     }
 }

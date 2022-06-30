@@ -16,7 +16,7 @@
 package net.renfei.sdk.common;
 
 import net.renfei.sdk.common.enums.StateCodeEnum;
-import net.renfei.sdk.utils.StringUtil;
+import net.renfei.sdk.utils.StringUtils;
 
 import java.io.Serializable;
 
@@ -97,8 +97,8 @@ public class APIResult<T> implements Serializable {
 
     private void signature() {
         this.timestamp = System.currentTimeMillis() / 1000L;
-        this.nonce = StringUtil.getRandomString(16);
-        this.signature = StringUtil.signature(this.timestamp.toString(), this.nonce);
+        this.nonce = StringUtils.getRandomString(16);
+        this.signature = StringUtils.signature(this.timestamp.toString(), this.nonce);
     }
 
     public static class Builder<T> {

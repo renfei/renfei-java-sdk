@@ -15,26 +15,13 @@
  */
 package net.renfei.sdk.utils;
 
-import java.math.BigInteger;
-import java.nio.charset.StandardCharsets;
-import java.security.MessageDigest;
-import java.security.NoSuchAlgorithmException;
+import java.util.List;
 
-/**
- * 信息摘要工具
- *
- * @author renfei
- */
-public class MessageDigestUtil {
-    public static String sha1(String message) {
-        MessageDigest digest = null;
-        try {
-            digest = MessageDigest.getInstance("SHA-1");
-        } catch (NoSuchAlgorithmException e) {
-            throw new RuntimeException(e);
+public class ListUtils {
+    public static <T> T getOne(List<T> list) {
+        if (list == null || list.size() < 1) {
+            return null;
         }
-        digest.reset();
-        digest.update(message.getBytes(StandardCharsets.UTF_8));
-        return String.format("%040x", new BigInteger(1, digest.digest()));
+        return list.get(0);
     }
 }

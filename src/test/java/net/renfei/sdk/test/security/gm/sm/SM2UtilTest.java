@@ -20,7 +20,7 @@ import net.renfei.sdk.security.gm.sm.SM2X509CertFactory;
 import net.renfei.sdk.security.gm.sm.random.CertSNAllocator;
 import net.renfei.sdk.security.gm.sm.random.RandomSNAllocator;
 import net.renfei.sdk.test.Tests;
-import net.renfei.sdk.utils.StringUtil;
+import net.renfei.sdk.utils.StringUtils;
 import org.bouncycastle.asn1.x500.X500Name;
 import org.bouncycastle.asn1.x500.X500NameBuilder;
 import org.bouncycastle.asn1.x500.style.BCStyle;
@@ -53,9 +53,9 @@ public class SM2UtilTest extends Tests {
     static String certFileName = "cert.pem";
     static String exceptionHappened = "Exception happened";
     static String keyEqualHint = "key should be equal";
-    static String passwd = StringUtil.getRandomNumber(18);
+    static String passwd = StringUtils.getRandomNumber(18);
     static int randomData = 128;
-    static byte[] message = StringUtil.getRandomString(randomData).getBytes();
+    static byte[] message = StringUtils.getRandomString(randomData).getBytes();
     PublicKey pubKey;
     PrivateKey privKey;
     X509Certificate x509Certificate;
@@ -116,7 +116,7 @@ public class SM2UtilTest extends Tests {
         try {
             if (!pubFile.exists()) {
                 SM2Util instance = new SM2Util();
-                this.keyPair = instance.generatekeyPair();
+                this.keyPair = instance.generateKeyPair();
                 saveKeyPairInPem(this.keyPair, pubFileName, privFileName);
 
                 X500NameBuilder builder = new X500NameBuilder(BCStyle.INSTANCE);
@@ -230,7 +230,7 @@ public class SM2UtilTest extends Tests {
     public void keyPairWithPasswd() {
         try {
             SM2Util instance = new SM2Util();
-            KeyPair keyPair = instance.generatekeyPair();
+            KeyPair keyPair = instance.generateKeyPair();
             String privateKeyPem = SM2Util.pemFrom(keyPair.getPrivate(), passwd);
             Files.write(Paths.get(encryptedprivFileName), privateKeyPem.getBytes());
             PrivateKey key = SM2Util.loadPrivateFromFile(encryptedprivFileName, passwd);
@@ -249,7 +249,7 @@ public class SM2UtilTest extends Tests {
         CertSNAllocator snAllocator = new RandomSNAllocator();
 
         // one 模拟根 CA 自签名生成根证书 rootCACert
-        KeyPair rootKeyPair = sm2Util.generatekeyPair();
+        KeyPair rootKeyPair = sm2Util.generateKeyPair();
         X500Name rootX500Name = new X500NameBuilder(BCStyle.INSTANCE).addRDN(BCStyle.CN, "Root CA").build();
         SM2X509CertFactory rootCertMaker = new SM2X509CertFactory(rootKeyPair, rootX500Name);
         PublicKey rootKeyPairPublic = rootKeyPair.getPublic();
@@ -262,7 +262,7 @@ public class SM2UtilTest extends Tests {
                 new Date(now.getDate() + certExpire));
 
         // two 模拟根 CA 生成中间证书
-        KeyPair midKeyPair = sm2Util.generatekeyPair();
+        KeyPair midKeyPair = sm2Util.generateKeyPair();
         PublicKey midKeyPairPublic = midKeyPair.getPublic();
         X500Name midX500Name = new X500NameBuilder(BCStyle.INSTANCE).addRDN(BCStyle.CN, "Intermediate CA").build();
         byte[] midcsr = SM2Util.generateCSR(midKeyPair, new X500Principal(String.valueOf(midX500Name))).getEncoded();
@@ -275,7 +275,7 @@ public class SM2UtilTest extends Tests {
 
         // three 模拟中间 CA 生成用户证书
         SM2X509CertFactory midCertMaker = new SM2X509CertFactory(midKeyPair, midX500Name);
-        KeyPair userKeyPair = sm2Util.generatekeyPair();
+        KeyPair userKeyPair = sm2Util.generateKeyPair();
         X500Name userX500Name = new X500NameBuilder(BCStyle.INSTANCE).addRDN(BCStyle.CN, "User CA").build();
         byte[] usercsr = SM2Util.generateCSR(userKeyPair, new X500Principal(String.valueOf(userX500Name))).getEncoded();
         X509Certificate userCACert = midCertMaker.subCACert(usercsr,
