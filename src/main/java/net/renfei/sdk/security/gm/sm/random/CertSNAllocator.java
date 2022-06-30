@@ -13,10 +13,13 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package net.renfei.sdk.test;
+package net.renfei.sdk.security.gm.sm.random;
+
+import java.math.BigInteger;
 
 /**
  * @author renfei
  */
-public abstract class Tests {
+public interface CertSNAllocator {
+    BigInteger nextSerialNumber();
 }

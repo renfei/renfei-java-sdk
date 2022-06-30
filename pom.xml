@@ -6,7 +6,7 @@
     <groupId>net.renfei</groupId>
     <artifactId>sdk</artifactId>
     <packaging>jar</packaging>
-    <version>1.1.2</version>
+    <version>2.0.0-SNAPSHOT</version>
     <name>renfei-java-sdk</name>
     <url>http://www.renfei.net</url>
     <description>RenFei Software Development Kit for Java</description>
@@ -23,7 +23,7 @@
         <url>https://github.com/renfei/renfei-java-sdk/issues</url>
     </issueManagement>
 
-    <inceptionYear>2020</inceptionYear>
+    <inceptionYear>2022</inceptionYear>
 
     <scm>
         <connection>scm:git:git://github.com/renfei/renfei-java-sdk.git</connection>
@@ -49,82 +49,20 @@
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <java.version>1.8</java.version>
-        <junit.version>5.7.2</junit.version>
-        <httpclient.version>4.5.13</httpclient.version>
-        <fastjson.version>1.2.76</fastjson.version>
-        <lombok.version>1.18.20</lombok.version>
-        <servlet-api.version>4.0.1</servlet-api.version>
-        <apache-commons-lang3.version>3.12.0</apache-commons-lang3.version>
-        <dom4j.version>2.1.3</dom4j.version>
-        <xstream.version>1.4.17</xstream.version>
-        <poi.version>5.0.0</poi.version>
-
+        <bouncycastle.version>1.70</bouncycastle.version>
+        <junit.version>5.8.2</junit.version>
     </properties>
     <dependencies>
         <dependency>
+            <groupId>org.bouncycastle</groupId>
+            <artifactId>bcpkix-jdk15on</artifactId>
+            <version>${bouncycastle.version}</version>
+        </dependency>
+        <dependency>
             <groupId>org.junit.jupiter</groupId>
-            <artifactId>junit-jupiter-api</artifactId>
+            <artifactId>junit-jupiter</artifactId>
             <version>${junit.version}</version>
             <scope>test</scope>
-        </dependency>
-        <dependency>
-            <groupId>org.projectlombok</groupId>
-            <artifactId>lombok</artifactId>
-            <version>${lombok.version}</version>
-            <scope>provided</scope>
-        </dependency>
-        <dependency>
-            <groupId>org.apache.httpcomponents</groupId>
-            <artifactId>httpclient</artifactId>
-            <version>${httpclient.version}</version>
-            <exclusions>
-                <exclusion>
-                    <artifactId>commons-codec</artifactId>
-                    <groupId>commons-codec</groupId>
-                </exclusion>
-            </exclusions>
-        </dependency>
-        <dependency>
-            <groupId>com.alibaba</groupId>
-            <artifactId>fastjson</artifactId>
-            <version>${fastjson.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>javax.servlet</groupId>
-            <artifactId>javax.servlet-api</artifactId>
-            <version>${servlet-api.version}</version>
-            <scope>provided</scope>
-        </dependency>
-        <dependency>
-            <groupId>org.apache.commons</groupId>
-            <artifactId>commons-lang3</artifactId>
-            <version>${apache-commons-lang3.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>org.dom4j</groupId>
-            <artifactId>dom4j</artifactId>
-            <version>${dom4j.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>com.thoughtworks.xstream</groupId>
-            <artifactId>xstream</artifactId>
-            <version>${xstream.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>org.apache.poi</groupId>
-            <artifactId>poi</artifactId>
-            <version>${poi.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>org.apache.poi</groupId>
-            <artifactId>poi-ooxml</artifactId>
-            <version>${poi.version}</version>
-            <exclusions>
-                <exclusion>
-                    <artifactId>xml-apis</artifactId>
-                    <groupId>xml-apis</groupId>
-                </exclusion>
-            </exclusions>
         </dependency>
     </dependencies>
 

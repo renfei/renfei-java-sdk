@@ -13,10 +13,20 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package net.renfei.sdk.test;
+package net.renfei.sdk.test.security.gm.sm.random;
+
+import net.renfei.sdk.security.gm.sm.random.RandomSNAllocator;
+import net.renfei.sdk.test.Tests;
+import org.junit.jupiter.api.Test;
+
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 /**
  * @author renfei
  */
-public abstract class Tests {
+public class RandomSNAllocatorTest extends Tests {
+    @Test
+    public void testInvalidData() {
+        assertThrows(IllegalArgumentException.class, () -> new RandomSNAllocator(64));
+    }
 }

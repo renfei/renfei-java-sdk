@@ -13,10 +13,18 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package net.renfei.sdk.test;
+package net.renfei.sdk.security.gm.sm;
 
 /**
+ * 国产商密基类
+ *
  * @author renfei
  */
-public abstract class Tests {
+public abstract class AbstractSM {
+    protected static final String EC_VALUE = "EC";
+    protected static final String SM3SM2_VALUE = "SM3WITHSM2";
+    protected static final String CURVE_NAME = "sm2p256v1";
+    protected static final String SM2 = "sm2";
+    protected static final String SM3 = "sm3";
+    protected static final String SM4 = "sm4";
 }

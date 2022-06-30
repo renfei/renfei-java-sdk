@@ -15,7 +15,8 @@
 收集开发中常用的代码工具。虽然程序员们都热衷于重复的"造轮子"，但这样是不对的，如果代码有问题你应该尝试去修复，而不是重新再造一个轮子出来。所以我收集开发中常用的工具代码，以方便在各个项目中重新利用它们。如果您在使用 RenFei SDK for Java 的过程中遇到任何问题，欢迎在当前 GitHub [提交 Issues](https://github.com/renfei/renfei-java-sdk/issues/new)。
 
 ## 环境要求
-1.RenFei SDK for Java 需要1.8以上的JDK。
+1.RenFei SDK for Java 需要1.8以上的JDK。  
+2.RenFei SDK for Java 1.x 与 2.x 完全不兼容
 
 ## 安装依赖
 将RenFei SDK for Java包含在您的项目中
@@ -32,12 +33,6 @@
 ## 说明文档
 详细的说明文档请访问<a href="https://sdk.renfei.net" target="_blank">sdk.renfei.net</a>。  
 更多技术类文章和macOS破解软件分享请访问<a href="https://www.renfei.net" target="_blank">任霏博客</a>。
-
-## 代码仓库
-- [Main] Github:[https://github.com/renfei/renfei-java-sdk](https://github.com/renfei/renfei-java-sdk)
-- [Mirror] Gitlab:[https://gitlab.com/renfei/renfei-java-sdk](https://gitlab.com/renfei/renfei-java-sdk)
-- [Mirror] Gitee:[https://gitee.com/rnf/renfei-java-sdk](https://gitee.com/rnf/renfei-java-sdk)
-- [Mirror] Coding:[https://githubi.coding.net/public/renfei/renfei-java-sdk/git/files](https://githubi.coding.net/public/renfei/renfei-java-sdk/git/files)
 
 ## 求鼓励
 

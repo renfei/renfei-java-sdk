@@ -13,10 +13,27 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package net.renfei.sdk.test;
+package net.renfei.sdk.security.gm.sm.random;
+
+import java.security.SecureRandom;
 
 /**
+ * 安全随机
+ *
  * @author renfei
  */
-public abstract class Tests {
+public class SecureRandomFactory {
+    private final static SecureRandom INSTANCE;
+
+    static {
+        INSTANCE = new SecureRandom();
+    }
+
+    private SecureRandomFactory() {
+        throw new RuntimeException("access denied.");
+    }
+
+    public static SecureRandom getSecureRandom() {
+        return INSTANCE;
+    }
 }
